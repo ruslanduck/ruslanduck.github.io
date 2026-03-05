@@ -59,36 +59,58 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 200);
   }
 
-  // ── Particle system ──
+  // ── Particle system (JS-driven RAF for cross-browser compatibility) ──
   const particleContainer = document.querySelector('.particles');
   if (particleContainer) {
-    const colors = ['var(--yellow)', 'var(--pink)', 'var(--yellow)', 'var(--yellow)', 'var(--pink)'];
+    const colors = ['#FFDC00', '#FF00F5', '#FFDC00', '#FFDC00', '#FF00F5'];
+    const glyphs = ['→', '◆', '+', '//', '{ }', '▸', '—', '×'];
+    const pData = [];
+
     for (let i = 0; i < 45; i++) {
       const p = document.createElement('div');
-      p.className = 'particle';
-      p.style.left = Math.random() * 100 + '%';
-      p.style.width = (1.5 + Math.random() * 3.5) + 'px';
-      p.style.height = p.style.width;
-      p.style.background = colors[Math.floor(Math.random() * colors.length)];
-      p.style.animationDuration = (7 + Math.random() * 16) + 's';
-      p.style.animationDelay = -(Math.random() * 20) + 's';
+      const w = (1.5 + Math.random() * 3.5).toFixed(1);
+      p.style.cssText = 'position:absolute;border-radius:50%;width:' + w + 'px;height:' + w + 'px;' +
+        'left:' + (Math.random() * 100).toFixed(1) + '%;' +
+        'background:' + colors[Math.floor(Math.random() * colors.length)] + ';' +
+        'will-change:transform,opacity;opacity:0;';
       particleContainer.appendChild(p);
+      pData.push({ el: p, dur: 7000 + Math.random() * 16000, phase: Math.random() });
     }
 
-    // Automation glyph particles
-    const glyphs = ['→', '◆', '+', '//', '{ }', '▸', '—', '×'];
     for (let i = 0; i < 20; i++) {
       const g = document.createElement('div');
-      g.className = 'glyph-particle';
+      const gc = Math.random() > 0.55
+        ? 'rgba(255,220,0,' + (0.25 + Math.random() * 0.35).toFixed(2) + ')'
+        : 'rgba(255,0,245,' + (0.2 + Math.random() * 0.3).toFixed(2) + ')';
+      g.style.cssText = 'position:absolute;font-family:"Bebas Neue",monospace;font-size:0.65rem;' +
+        'letter-spacing:0.08em;pointer-events:none;user-select:none;' +
+        'left:' + (Math.random() * 100).toFixed(1) + '%;color:' + gc + ';' +
+        'will-change:transform,opacity;opacity:0;';
       g.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
-      g.style.left = Math.random() * 100 + '%';
-      g.style.color = Math.random() > 0.55
-        ? 'rgba(255,220,0,' + (0.25 + Math.random() * 0.35) + ')'
-        : 'rgba(255,0,245,' + (0.2 + Math.random() * 0.3) + ')';
-      g.style.animationDuration = (11 + Math.random() * 18) + 's';
-      g.style.animationDelay = -(Math.random() * 22) + 's';
       particleContainer.appendChild(g);
+      pData.push({ el: g, dur: 11000 + Math.random() * 18000, phase: Math.random(), glyph: true });
     }
+
+    function animateParticles(ts) {
+      for (let j = 0; j < pData.length; j++) {
+        const d = pData[j];
+        const t = ((ts / d.dur) + d.phase) % 1;
+        let op, ty, sc;
+        if (!d.glyph) {
+          ty = 800 - 880 * t;
+          sc = t;
+          op = t < 0.1 ? t / 0.1 * 0.8 : t < 0.9 ? 0.8 - (t - 0.1) / 0.8 * 0.5 : (1 - t) / 0.1 * 0.3;
+          d.el.style.transform = 'translateY(' + ty.toFixed(0) + 'px) scale(' + sc.toFixed(2) + ')';
+        } else {
+          ty = 80 - 180 * t;
+          op = t < 0.12 ? t / 0.12 : t < 0.85 ? 1 - (t - 0.12) / 0.73 * 0.8 : (1 - t) / 0.15 * 0.2;
+          d.el.style.transform = 'translateY(' + ty.toFixed(0) + 'px)';
+        }
+        d.el.style.opacity = (op < 0 ? 0 : op > 1 ? 1 : op).toFixed(3);
+      }
+      requestAnimationFrame(animateParticles);
+    }
+    requestAnimationFrame(animateParticles);
   }
 
   // ── Counter animation ──
