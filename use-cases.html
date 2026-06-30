@@ -3,25 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Use Cases — Custom ERP & CRM Systems | Duck Agency</title>
-  <meta name="description" content="20+ custom ERP/CRM systems delivered across manufacturing, engineering, corporate travel, B2B distribution, staffing and more. Real results, real businesses.">
+  <title>Use Cases – Duck Agency</title>
+  <meta name="description" content="40+ custom ERP/CRM systems delivered across manufacturing, engineering, corporate travel, B2B distribution, staffing and more. Real results, real businesses.">
   <meta name="keywords" content="ERP case studies, CRM case studies, custom software examples, business automation results, process automation">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://duck-agency.com/use-cases.html">
   <link rel="icon" type="image/png" href="assets/icon.png">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://duck-agency.com/use-cases.html">
   <meta property="og:site_name" content="Duck Agency">
-  <meta property="og:title" content="Use Cases — Custom ERP & CRM Systems | Duck Agency">
-  <meta property="og:description" content="20+ custom ERP/CRM systems delivered across manufacturing, engineering, corporate travel, B2B distribution and more. Real results, real businesses.">
+  <meta property="og:title" content="Use Cases – Custom ERP & CRM Systems | Duck Agency">
+  <meta property="og:description" content="40+ custom ERP/CRM systems delivered across manufacturing, engineering, corporate travel, B2B distribution and more. Real results, real businesses.">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Use Cases — Custom ERP & CRM Systems | Duck Agency">
-  <meta name="twitter:description" content="20+ custom ERP/CRM systems delivered across manufacturing, engineering, corporate travel, B2B distribution and more.">
+  <meta name="twitter:title" content="Use Cases – Custom ERP & CRM Systems | Duck Agency">
+  <meta name="twitter:description" content="40+ custom ERP/CRM systems delivered across manufacturing, engineering, corporate travel, B2B distribution and more.">
   <meta property="og:image" content="https://duck-agency.com/assets/logo_white_long.png">
   <meta name="twitter:image" content="https://duck-agency.com/assets/logo_white_long.png">
   <link rel="stylesheet" href="style.css">
+  <!-- seo-extra -->
+  <meta name="theme-color" content="#161616">
+  <meta name="author" content="Duck Agency">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image:alt" content="Duck Agency – operations & revenue automation">
+  <meta name="twitter:image:alt" content="Duck Agency – operations & revenue automation">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    #cases-map { height: 460px; width: 100%; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); background: #0d0f16; }
+    .leaflet-container { background: #0d0f16; font-family: inherit; }
+    .duck-pin { width: 14px; height: 14px; background: var(--yellow); border-radius: 50%; box-shadow: 0 0 0 4px rgba(255,220,0,0.18), 0 0 12px rgba(255,220,0,0.7); }
+    .duck-pin::after { content: ''; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid rgba(255,220,0,0.55); animation: pin-pulse 2s infinite ease-out; }
+    @keyframes pin-pulse { 0% { transform: scale(1); opacity: .8; } 100% { transform: scale(2.6); opacity: 0; } }
+    .leaflet-popup-content-wrapper, .leaflet-popup-tip { background: #1c1c1e; color: var(--white); }
+    .leaflet-popup-content { font-size: 0.85rem; font-weight: 700; margin: 10px 14px; }
+    .leaflet-container a.leaflet-popup-close-button { color: rgba(255,255,255,0.6); }
+    .leaflet-control-attribution { background: rgba(0,0,0,0.45) !important; color: rgba(255,255,255,0.4) !important; }
+    .leaflet-control-attribution a { color: rgba(255,255,255,0.6) !important; }
+    @media (max-width: 768px) { #cases-map { height: 360px; } }
+  </style>
+  <!-- seo-jsonld -->
+  <script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Use Cases & Results", "url": "https://duck-agency.com/use-cases.html", "description": "40+ custom ERP/CRM systems delivered across manufacturing, engineering, corporate travel, B2B distribution, staffing and more. Real results, real businesses.", "isPartOf": {"@type": "WebSite", "name": "Duck Agency", "url": "https://duck-agency.com/"}, "publisher": {"@type": "Organization", "name": "Duck Agency", "url": "https://duck-agency.com/", "logo": "https://duck-agency.com/assets/logo_white_long.png"}}
+  </script>
+  <script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://duck-agency.com/"}, {"@type": "ListItem", "position": 2, "name": "Use Cases", "item": "https://duck-agency.com/use-cases.html"}]}
+  </script>
 </head>
 <body>
 
@@ -30,24 +60,22 @@
   <div class="nav-inner">
     <a href="index.html" class="nav-logo"><img src="assets/logo_white_long.png" alt="Duck Agency"></a>
     <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="use-cases.html" class="active">Use Cases</a>
-      <a href="tools-ai.html">AI &amp; Tools</a>
-      <a href="process-audit.html">Process Audit</a>
-      <a href="about.html">About Us</a>
-      <a href="blog.html">Blog</a>
+      <a href="operations.html">Operations</a>
+      <a href="revenue.html">Revenue</a>
+      <a href="scale-audit.html">Scale Audit</a>
+      <a href="use-cases.html" class="active">Results</a>
+      <a href="index.html#team" class="tst-only">Team</a>
     </div>
-    <a href="https://calendly.com/ruslan-duck-agency/30min" target="_blank" rel="noopener" class="nav-cta"><span>Book a Call</span></a>
+    <a href="https://calendly.com/ruslan-duck-agency/30min" target="_blank" rel="noopener" class="nav-cta"><span>Book a Call →</span></a>
     <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="mobile-menu">
-  <a href="index.html">Home</a>
-  <a href="use-cases.html" class="active">Use Cases</a>
-  <a href="tools-ai.html">AI &amp; Tools</a>
-  <a href="process-audit.html">Process Audit</a>
-  <a href="about.html">About Us</a>
-  <a href="blog.html">Blog</a>
+  <a href="operations.html">Operations</a>
+  <a href="revenue.html">Revenue</a>
+  <a href="scale-audit.html">Scale Audit</a>
+  <a href="use-cases.html" class="active">Results</a>
+  <a href="index.html#team" class="tst-only">Team</a>
   <a href="https://calendly.com/ruslan-duck-agency/30min" target="_blank" rel="noopener" style="color:var(--yellow)">Book a Call →</a>
 </div>
 
@@ -56,7 +84,19 @@
   <div class="container">
     <span class="section-eyebrow hero-enter">Portfolio</span>
     <h1 class="hero-enter">Real systems.<br><span class="pink">Real results.</span></h1>
-    <p class="section-sub hero-enter">20+ operational systems delivered across 8 industries. Each one built around how the business actually works, not how software thinks it should.</p>
+    <p class="section-sub hero-enter">40+ operational systems delivered across 8 industries. Each one built around how the business actually works, not how software thinks it should.</p>
+  </div>
+</section>
+
+<!-- ORDERS MAP -->
+<section style="padding:10px 0 44px">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:24px">
+      <span class="section-eyebrow fade-in">Where we work</span>
+      <h2 class="section-title fade-in" style="font-size:clamp(1.6rem,3vw,2.2rem)">Clients across the US &amp; Europe</h2>
+    </div>
+    <div id="cases-map" class="fade-in"></div>
+    <p style="text-align:center;margin-top:14px;font-size:0.85rem;color:rgba(239,239,239,0.6)">40+ businesses · 8 industries · North America &amp; Europe</p>
   </div>
 </section>
 
@@ -82,12 +122,12 @@
       <!-- 1: Merchandise Producer -->
       <div class="case-card fade-in" data-category="erp">
         <div class="case-industry">Manufacturing / Production</div>
-        <h3>Full Operating System — Corporate Merchandise Producer</h3>
+        <h3>Full Operating System – Corporate Merchandise Producer</h3>
         <p>Complete ERP for a branded merchandise company. Product catalog syncing across multiple websites, automated accounting, design approval workflows with client review loops, logistics and order management all connected in one system. Replaced dozens of disconnected spreadsheets.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
           <div class="case-result"><span class="num">-60%</span><span class="label">manual work</span></div>
         </div>
-        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.3)">Stack: Airtable + Custom Interfaces + Automations + Shopify + QuickBooks + ShopStation</p>
+        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.68)">Stack: Airtable + Custom Interfaces + Automations + Shopify + QuickBooks + ShopStation</p>
       </div>
 
       <!-- 2: Engineering -->
@@ -99,7 +139,7 @@
           <div class="case-result"><span class="num">+63%</span><span class="label">faster processing</span></div>
           <div class="case-result"><span class="num">2-3x</span><span class="label">less team load</span></div>
         </div>
-        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.3)">Stack: Airtable + Automation</p>
+        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.68)">Stack: Airtable + Automation</p>
       </div>
 
       <!-- 3: Travel -->
@@ -110,7 +150,7 @@
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
           <div class="case-result"><span class="num">10 min</span><span class="label">vs 2-3 days</span></div>
         </div>
-        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.3)">Stack: Monday + Custom Interface + Automation</p>
+        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.68)">Stack: Monday + Custom Interface + Automation</p>
       </div>
 
       <!-- 4: Installation Services -->
@@ -121,7 +161,7 @@
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
           <div class="case-result"><span class="num">-38%</span><span class="label">handling time</span></div>
         </div>
-        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.3)">Stack: Airtable + Automation + Custom Interfaces</p>
+        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.68)">Stack: Airtable + Automation + Custom Interfaces</p>
       </div>
 
       <!-- 5: B2B Distributor -->
@@ -133,7 +173,7 @@
           <div class="case-result"><span class="num">100%</span><span class="label">data accuracy</span></div>
           <div class="case-result"><span class="num">+23%</span><span class="label">quality improvement</span></div>
         </div>
-        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.3)">Stack: Airtable + Automation + Integrations</p>
+        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.68)">Stack: Airtable + Automation + Integrations</p>
       </div>
 
       <!-- 6: Staffing -->
@@ -144,7 +184,7 @@
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
           <div class="case-result"><span class="num">4,000+</span><span class="label">registrations</span></div>
         </div>
-        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.3)">Stack: Airtable + Custom Interfaces + Telegram Bot + Mobile App</p>
+        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.68)">Stack: Airtable + Custom Interfaces + Telegram Bot + Mobile App</p>
       </div>
 
       <!-- 7: Retouching -->
@@ -156,7 +196,7 @@
           <div class="case-result"><span class="num">100%</span><span class="label">automated invoicing</span></div>
           <div class="case-result"><span class="num">$290k</span><span class="label">saved in year 1</span></div>
         </div>
-        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.3)">Stack: Monday + Automation + QuickBooks</p>
+        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.68)">Stack: Monday + Automation + QuickBooks</p>
       </div>
 
       <!-- 8: Call Center -->
@@ -167,7 +207,7 @@
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
           <div class="case-result"><span class="num">-50%</span><span class="label">coordination time</span></div>
         </div>
-        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.3)">Stack: Airtable + Automation + Custom Interfaces</p>
+        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.68)">Stack: Airtable + Automation + Custom Interfaces</p>
       </div>
 
       <!-- 9: Creative Ops -->
@@ -179,7 +219,7 @@
           <div class="case-result"><span class="num">-85%</span><span class="label">manual input</span></div>
           <div class="case-result"><span class="num">Enterprise</span><span class="label">scale system</span></div>
         </div>
-        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.3)">Stack: Bubble + Supabase + Automation + Integrations</p>
+        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.68)">Stack: Bubble + Supabase + Automation + Integrations</p>
       </div>
 
       <!-- 10: AI Automation -->
@@ -190,52 +230,52 @@
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
           <div class="case-result"><span class="num">3 depts</span><span class="label">automated</span></div>
         </div>
-        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.3)">Stack: AI + Automation + Odoo + Internal Systems</p>
+        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.68)">Stack: AI + Automation + Odoo + Internal Systems</p>
       </div>
 
       <!-- 11: Digital Marketing CRM -->
       <div class="case-card fade-in" data-category="crm">
         <div class="case-industry">Digital Marketing / Sales</div>
         <h3>Digital Marketing Agency Sales CRM</h3>
-        <p>Migrated the agency off HubSpot into a custom CRM built around their actual workflow. Automated lead intake, follow-up sequences, pipeline tracking by service line, and team activity dashboards — without the enterprise price tag.</p>
+        <p>Migrated the agency off HubSpot into a custom CRM built around their actual workflow. Automated lead intake, follow-up sequences, pipeline tracking by service line, and team activity dashboards – without the enterprise price tag.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
           <div class="case-result"><span class="num">-84%</span><span class="label">tools cost</span></div>
           <div class="case-result"><span class="num">6 → 1</span><span class="label">systems unified</span></div>
         </div>
-        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.3)">Stack: Airtable + Automation + Integrations</p>
+        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.68)">Stack: Airtable + Automation + Integrations</p>
       </div>
 
       <!-- 12: Networking Company CRM -->
       <div class="case-card fade-in" data-category="crm">
         <div class="case-industry">B2B Networking / Events</div>
         <h3>Networking Company CRM & Billing</h3>
-        <p>Sales CRM combined with operational workflows and Stripe payment integration. Members, deals, events, and billing managed in one place — automated from first contact through to paid invoice.</p>
+        <p>Sales CRM combined with operational workflows and Stripe payment integration. Members, deals, events, and billing managed in one place – automated from first contact through to paid invoice.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
           <div class="case-result"><span class="num">-60%</span><span class="label">Monday.com costs</span></div>
         </div>
-        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.3)">Stack: Monday + Automation + Stripe</p>
+        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.68)">Stack: Monday + Automation + Stripe</p>
       </div>
 
       <!-- 13: Hostel Network -->
       <div class="case-card fade-in" data-category="services">
         <div class="case-industry">Hospitality / Operations</div>
         <h3>Hostel Network Operations System</h3>
-        <p>Centralized system for a chain of hostels: bookings across locations, availability management, staff scheduling, and financial reporting. After implementation, an audit of the new data revealed €20,000 in revenue previously lost due to untracked bookings — invisible without proper reporting.</p>
+        <p>Centralized system for a chain of hostels: bookings across locations, availability management, staff scheduling, and financial reporting. After implementation, an audit of the new data revealed €20,000 in revenue previously lost due to untracked bookings – invisible without proper reporting.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
           <div class="case-result"><span class="num">€20k</span><span class="label">found in losses</span></div>
         </div>
-        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.3)">Stack: Airtable + Automation + Custom Interfaces</p>
+        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.68)">Stack: Airtable + Automation + Custom Interfaces</p>
       </div>
 
       <!-- 14: AI Property Bot -->
       <div class="case-card fade-in" data-category="platforms">
         <div class="case-industry">Real Estate / AI</div>
         <h3>AI Property Search Bot</h3>
-        <p>Conversational AI bot for a real estate platform. Buyers describe what they're looking for in plain language — the bot asks follow-up questions, filters listings in real time, and surfaces matching properties. Fully integrated with the client's live property database.</p>
+        <p>Conversational AI bot for a real estate platform. Buyers describe what they're looking for in plain language – the bot asks follow-up questions, filters listings in real time, and surfaces matching properties. Fully integrated with the client's live property database.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
           <div class="case-result"><span class="num">+4%</span><span class="label">sales in month 1</span></div>
         </div>
-        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.3)">Stack: AI + Custom Bot + API Integration</p>
+        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.68)">Stack: AI + Custom Bot + API Integration</p>
       </div>
 
     </div>
@@ -275,15 +315,30 @@
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section">
+<!-- CONTACT FORM -->
+<section class="cta-section" id="contact">
   <div class="container">
-    <h2 class="fade-in">Have a similar<br><span class="yellow">challenge</span>?</h2>
-    <p class="fade-in">Let's talk about what a proper operating system looks like for your business.</p>
-    <div class="cta-actions fade-in">
-      <a href="https://calendly.com/ruslan-duck-agency/30min" target="_blank" rel="noopener" class="btn btn-primary">Book a Free Call</a>
-      <button onclick="copyEmail()" class="btn btn-secondary">Copy Email ✉</button>
-    </div>
+    <h2 class="fade-in">Let's build your<br><span class="yellow">scale system</span></h2>
+    <p class="fade-in">Tell us what's slowing you down. We'll get back to you within one business day.</p>
+    <form class="contact-form fade-in" id="contactForm" novalidate style="text-align:left;margin-top:36px">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="cf-name">Name</label>
+          <input id="cf-name" name="name" type="text" required placeholder="Your name">
+        </div>
+        <div class="form-field">
+          <label for="cf-email">Email</label>
+          <input id="cf-email" name="email" type="email" required placeholder="you@company.com">
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="cf-note">Note</label>
+        <textarea id="cf-note" name="note" rows="5" required placeholder="What are you trying to fix or automate?"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Send message</button>
+      <p class="form-alt">or <a href="https://calendly.com/ruslan-duck-agency/30min" target="_blank" rel="noopener">book a 30-min call →</a></p>
+      <p class="form-status" id="cfStatus" aria-live="polite"></p>
+    </form>
   </div>
 </section>
 
@@ -293,27 +348,29 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <img src="assets/logo_white_2_lines.png" alt="Duck Agency">
-        <p>Custom operating systems for growing businesses. From spreadsheet chaos to automated operations.</p>
+        <p>Scale your output – not your team.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
           <h4>Pages</h4>
-          <a href="index.html">Home</a>
-          <a href="use-cases.html">Use Cases</a>
-          <a href="tools-ai.html">AI &amp; Tools</a>
-          <a href="process-audit.html">Process Audit</a>
-          <a href="about.html">About Us</a>
+          <a href="operations.html">Operations</a>
+          <a href="revenue.html">Revenue</a>
+          <a href="scale-audit.html">Scale Audit</a>
+          <a href="use-cases.html">Use cases</a>
+          <a href="index.html#team" class="tst-only">Team</a>
+          <a href="blog.html">Blog</a>
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
           <a href="https://calendly.com/ruslan-duck-agency/30min" target="_blank">Book a Call</a>
           <a href="mailto:ruslan@duck-agency.com">ruslan@duck-agency.com</a>
           <a href="https://www.linkedin.com/in/ruslan-idrysov-duck-agency/" target="_blank">LinkedIn</a>
+          <a href="https://www.upwork.com/freelancers/~01691c71b40f955a52" target="_blank">Upwork</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2024 – 2026 Duck Agency. Quack & Done.</p>
+      <p>&copy; 2026 Duck Agency. Quack &amp; Done.</p>
       <div class="footer-socials">
         <a href="https://www.linkedin.com/in/ruslan-idrysov-duck-agency/" target="_blank">LinkedIn</a>
         <a href="https://www.upwork.com/freelancers/~01691c71b40f955a52" target="_blank">Upwork</a>
@@ -323,5 +380,40 @@
 </footer>
 
 <script src="main.js"></script>
+<!-- Orders map -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function () {
+  if (typeof L === 'undefined' || !document.getElementById('cases-map')) return;
+  var map = L.map('cases-map', { scrollWheelZoom: false, zoomControl: true }).setView([44, -35], 3);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    maxZoom: 10, attribution: '© OpenStreetMap, © CARTO'
+  }).addTo(map);
+  var pin = L.divIcon({ className: '', html: '<div class="duck-pin"></div>', iconSize: [14, 14], iconAnchor: [7, 7] });
+  var cities = [
+    ['Texas', 31.0, -99.0],
+    ['Los Angeles', 34.05, -118.24],
+    ['New York', 40.71, -74.00],
+    ['Washington, DC', 38.90, -77.04],
+    ['Pennsylvania', 40.99, -77.60],
+    ['United Kingdom', 51.51, -0.13],
+    ['Scotland', 55.95, -3.19],
+    ['Czech Republic', 50.08, 14.44],
+    ['Austria', 48.21, 16.37],
+    ['Germany', 52.52, 13.40],
+    ['Belgium', 50.85, 4.35],
+    ['Cyprus', 35.17, 33.36],
+    ['Ukraine', 50.45, 30.52],
+    ['Italy', 41.90, 12.50]
+  ];
+  var pts = [];
+  cities.forEach(function (c) {
+    var m = L.marker([c[1], c[2]], { icon: pin }).addTo(map).bindPopup(c[0]);
+    m.on('mouseover', function () { this.openPopup(); });
+    pts.push([c[1], c[2]]);
+  });
+  map.fitBounds(pts, { padding: [40, 40] });
+})();
+</script>
 </body>
 </html>

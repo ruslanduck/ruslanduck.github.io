@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revenue Efficiency – Duck Agency</title>
+  <meta name="description" content="We automate your sales pipeline and marketing machine – so your team closes more deals and generates more leads without growing headcount. CRM, proposals, follow-up, outbound and content automation.">
+  <meta name="keywords" content="sales automation, marketing automation, CRM automation, proposal generation, outbound automation, lead generation, follow-up sequences">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://duck-agency.com/revenue.html">
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://duck-agency.com/revenue.html">
+  <meta property="og:site_name" content="Duck Agency">
+  <meta property="og:title" content="Revenue Efficiency – Duck Agency">
+  <meta property="og:description" content="Automate your sales pipeline and marketing – close more deals and generate more leads without growing headcount.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Revenue Efficiency – Duck Agency">
+  <meta name="twitter:description" content="Automate your sales pipeline and marketing – close more deals and generate more leads without growing headcount.">
+  <meta property="og:image" content="https://duck-agency.com/assets/logo_white_long.png">
+  <meta name="twitter:image" content="https://duck-agency.com/assets/logo_white_long.png">
+  <link rel="stylesheet" href="style.css">
+  <!-- seo-extra -->
+  <meta name="theme-color" content="#161616">
+  <meta name="author" content="Duck Agency">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image:alt" content="Duck Agency – operations & revenue automation">
+  <meta name="twitter:image:alt" content="Duck Agency – operations & revenue automation">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+
+  <!-- seo-jsonld -->
+  <script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Service", "name": "Revenue & Sales Automation", "url": "https://duck-agency.com/revenue.html", "description": "We automate your sales pipeline and marketing machine \u2013 so your team closes more deals and generates more leads without growing headcount. CRM, proposals, follow-up, outbound and content automation.", "isPartOf": {"@type": "WebSite", "name": "Duck Agency", "url": "https://duck-agency.com/"}, "publisher": {"@type": "Organization", "name": "Duck Agency", "url": "https://duck-agency.com/", "logo": "https://duck-agency.com/assets/logo_white_long.png"}, "serviceType": "Revenue & Sales Automation", "provider": {"@type": "Organization", "name": "Duck Agency", "url": "https://duck-agency.com/"}, "areaServed": ["United States", "Europe"]}
+  </script>
+  <script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://duck-agency.com/"}, {"@type": "ListItem", "position": 2, "name": "Revenue", "item": "https://duck-agency.com/revenue.html"}]}
+  </script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/logo_white_long.png" alt="Duck Agency"></a>
+    <div class="nav-links">
+      <a href="operations.html">Operations</a>
+      <a href="revenue.html" class="active">Revenue</a>
+      <a href="scale-audit.html">Scale Audit</a>
+      <a href="use-cases.html">Results</a>
+      <a href="index.html#team" class="tst-only">Team</a>
+    </div>
+    <a href="https://calendly.com/ruslan-duck-agency/30min" target="_blank" rel="noopener" class="nav-cta"><span>Book a Call →</span></a>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="operations.html">Operations</a>
+  <a href="revenue.html" class="active">Revenue</a>
+  <a href="scale-audit.html">Scale Audit</a>
+  <a href="use-cases.html">Results</a>
+  <a href="index.html#team" class="tst-only">Team</a>
+  <a href="https://calendly.com/ruslan-duck-agency/30min" target="_blank" rel="noopener" style="color:var(--yellow)">Book a Call →</a>
+</div>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="container">
+    <span class="section-eyebrow hero-enter">Revenue</span>
+    <h1 class="hero-enter">More leads, more deals,<br><span class="pink">the same team</span></h1>
+    <p class="section-sub hero-enter">We automate your sales pipeline and marketing machine – so your team generates more leads, closes more deals, and follows up on everything without growing headcount.</p>
+  </div>
+</section>
+
+<!-- REVENUE CALCULATOR -->
+<section class="section-pad" id="roi">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px">
+      <span class="section-eyebrow fade-in">Revenue Calculator</span>
+      <h2 class="section-title fade-in">What a higher<br><span class="pink">close rate</span> is worth</h2>
+      <p class="section-sub fade-in" style="margin:0 auto">Same leads, same team. See what even a small lift in conversion adds to your revenue.</p>
+    </div>
+    <div class="calc-wrapper fade-in" id="revcalc">
+      <div class="calc-inputs">
+        <div class="cur-toggle" role="group" aria-label="Currency">
+          <button type="button" class="cur-btn active" data-cur="$">$</button>
+          <button type="button" class="cur-btn" data-cur="€">€</button>
+          <button type="button" class="cur-btn" data-cur="🦆">🦆</button>
+        </div>
+        <div class="calc-field">
+          <label>Leads per month</label>
+          <div class="calc-input-wrap"><span class="calc-currency">#</span><input type="number" id="rev-leads" value="200" min="50" max="1000"></div>
+          <input type="range" class="calc-slider" id="rev-leads-r" min="50" max="1000" step="10" value="200">
+        </div>
+        <div class="calc-field">
+          <label>Conversion rate (lead → deal)</label>
+          <div class="calc-input-wrap"><span class="calc-currency">%</span><input type="number" id="rev-conv" value="5" min="1" max="20" step="0.5"></div>
+          <input type="range" class="calc-slider" id="rev-conv-r" min="1" max="20" step="0.5" value="5">
+        </div>
+        <div class="calc-field">
+          <label>Average revenue per deal</label>
+          <div class="calc-input-wrap"><span class="calc-currency" data-money>$</span><input type="number" id="rev-deal" value="3000" min="500" max="20000"></div>
+          <input type="range" class="calc-slider" id="rev-deal-r" min="500" max="20000" step="100" value="3000">
+        </div>
+        <div class="calc-current-cost"><p>Reach a <strong id="rev-target" style="color:var(--yellow);font-size:1rem">0%</strong> close rate and that's</p><strong id="rev-save">+$0</strong><p>extra revenue every year.</p></div>
+      </div>
+      <div class="calc-results">
+        <div class="calc-results-header">
+          <h4>If we lift your close rate</h4>
+          <p>Same leads, same team – just a higher conversion.</p>
+        </div>
+        <div class="calc-table calc-simple3">
+          <div class="calc-table-header">
+            <div class="calc-th">Close rate</div>
+            <div class="calc-th">Current rev / yr</div>
+            <div class="calc-th">Extra rev / yr</div>
+          </div>
+        <div class="calc-row" data-add="0.5"><div class="calc-pct"><span class="cr-rate">0%</span></div><div class="calc-val" data-col="cur">$0</div><div class="calc-val" data-col="ex">+$0</div></div>
+        <div class="calc-row" data-add="1.5"><div class="calc-pct"><span class="cr-rate">0%</span></div><div class="calc-val" data-col="cur">$0</div><div class="calc-val" data-col="ex">+$0</div></div>
+        <div class="calc-row highlight" data-add="3"><div class="calc-pct"><span class="cr-rate">0%</span></div><div class="calc-val" data-col="cur">$0</div><div class="calc-val" data-col="ex">+$0</div></div>
+        <div class="calc-row" data-add="5"><div class="calc-pct"><span class="cr-rate">0%</span></div><div class="calc-val" data-col="cur">$0</div><div class="calc-val" data-col="ex">+$0</div></div>
+        </div>
+        <div class="calc-bottom-message">
+          <p class="calc-investment-text">A few points <span class="yellow">change everything.</span></p>
+          <p style="font-size:0.82rem;color:rgba(239,239,239,0.6);margin-top:6px">Faster response, automated follow-ups and AI call prep lift your close rate – with no extra leads or headcount.</p>
+        </div>
+      </div>
+    </div>
+    <div class="calc-cta">
+      <a href="#how" class="btn btn-secondary">How we can do that →</a>
+      <a href="#contact" class="btn btn-primary">Get a free consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE DO THAT -->
+<section class="section-pad bg-grey" id="how" style="padding-top:48px">
+  <div class="container">
+    <div style="text-align:left;margin-bottom:40px">
+      <span class="section-eyebrow fade-in">How we do that</span>
+      <h2 class="section-title fade-in">How we lift<br>your close rate</h2>
+    </div>
+    <div class="challenges-grid">
+      <div class="challenge-card fade-in stagger-1">
+        <h4 style="margin-bottom:10px;color:var(--yellow)">Instant lead response</h4>
+        <p>Leads get what they asked for in seconds, while interest is hot – not hours later.</p>
+      </div>
+      <div class="challenge-card fade-in stagger-2">
+        <h4 style="margin-bottom:10px;color:var(--yellow)">Automated follow-ups</h4>
+        <p>Every lead gets a timely, persistent sequence – none go cold or get forgotten.</p>
+      </div>
+      <div class="challenge-card fade-in stagger-3">
+        <h4 style="margin-bottom:10px;color:var(--yellow)">More selling time</h4>
+        <p>Automation takes admin off your reps, so they focus on clients and work more leads.</p>
+      </div>
+      <div class="challenge-card fade-in stagger-4">
+        <h4 style="margin-bottom:10px;color:var(--yellow)">AI call prep</h4>
+        <p>AI briefs your team before every call – context, history and talking points in seconds.</p>
+      </div>
+      <div class="challenge-card fade-in stagger-5">
+        <h4 style="margin-bottom:10px;color:var(--yellow)">AI call analyzer</h4>
+        <p>Calls are analysed to sharpen the pitch and auto-adjust the follow-up that closes.</p>
+      </div>
+      <div class="challenge-card fade-in stagger-6">
+        <h4 style="margin-bottom:10px;color:var(--yellow)">Self-updating CRM</h4>
+        <p>A pipeline that tracks itself – nothing slips between stages, full visibility.</p>
+      </div>
+    </div>
+  </div>
+  <div class="block-cta"><a href="#contact" class="btn btn-primary">Get a free consultation</a></div>
+</section>
+
+<!-- BLOCK 04: SUCCESS STORIES -->
+<section class="section-pad bg-grey" id="cases">
+  <div class="container">
+    <div style="text-align:left;margin-bottom:48px">
+      <span class="section-eyebrow fade-in">Use Cases</span>
+      <h2 class="section-title fade-in">Real systems,<br>real numbers</h2>
+    </div>
+
+
+    <!-- TEMP result cards (always visible; remove when real cases go live) -->
+    <div class="tools-two-col" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <div class="case-card fade-in">
+        <div class="case-industry">Manufacturing / Production</div>
+        <h3>Full Operating System – Corporate Merchandise Producer</h3>
+        <p>Complete ERP for a branded merchandise company – product catalog synced across sites, automated accounting, design approval workflows, logistics and orders in one system. Replaced dozens of spreadsheets.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+          <div class="case-result"><span class="num">-60%</span><span class="label">manual work</span></div>
+        </div>
+        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.68)">Stack: Airtable + Custom Interfaces + Automations + Shopify + QuickBooks</p>
+      </div>
+      <div class="case-card fade-in">
+        <div class="case-industry">Engineering</div>
+        <h3>Automated Request Processing System</h3>
+        <p>Request intake, automated calculations, status tracking, technical documentation generation, and task routing between departments. Replaced a process that needed 5 people to manage manually.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+          <div class="case-result"><span class="num">+63%</span><span class="label">faster processing</span></div>
+          <div class="case-result"><span class="num">2-3x</span><span class="label">less team load</span></div>
+        </div>
+        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.68)">Stack: Airtable + Automation</p>
+      </div>
+      <div class="case-card fade-in">
+        <div class="case-industry">Corporate Travel</div>
+        <h3>Corporate Travel Proposal System</h3>
+        <p>Tour builder with automatic cost calculations, logistics planning, document and presentation generation, and client-facing interfaces. Proposals assembled like a constructor with real-time pricing.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+          <div class="case-result"><span class="num">10 min</span><span class="label">vs 2-3 days</span></div>
+        </div>
+        <p style="margin-top:14px;font-size:0.8rem;color:rgba(239,239,239,0.68)">Stack: Monday + Custom Interface + Automation</p>
+      </div>
+    </div>
+
+    <!-- Real case cards: hidden unless ?tst=yes -->
+    <div class="tst-only">
+        <div class="case-full fade-in">
+      <div class="case-main">
+        <div class="case-tag">Operations · E-commerce</div>
+        <h3>Ann Taylor – Fashion E-commerce</h3>
+        <p class="case-loc">New York, USA</p>
+        <p class="case-desc">Automated the product photography pipeline end to end – briefing, scheduling, retouching, and delivery – built with custom vibe-coded tooling. The team stopped managing the process by hand and started shipping twice the output.</p>
+        <div class="case-shot"><span>System screenshot · 16:9</span></div>
+        <div class="case-metrics">
+          <div class="metric"><div class="m-num">+38%</div><div class="m-label">Team efficiency</div></div>
+          <div class="metric"><div class="m-num">2x</div><div class="m-label">Production output</div></div>
+          <div class="metric"><div class="m-num">0</div><div class="m-label">New hires</div></div>
+        </div>
+      </div>
+      <div class="case-side">
+        <div class="case-video"><span>▶ Video testimonial</span></div>
+        <p class="case-quote">"[Client quote – coming soon.]"</p>
+        <div class="case-person">
+          <div class="case-photo"></div>
+          <div>
+            <div class="cp-name">Name Surname</div>
+            <div class="cp-role">Head of Operations · Ann Taylor</div>
+          </div>
+          <a href="#" class="cp-linkedin" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-full fade-in">
+      <div class="case-main">
+        <div class="case-tag">Revenue · Engineering</div>
+        <h3>PPG – Engineering Company</h3>
+        <p class="case-loc">USA</p>
+        <p class="case-desc">Automated proposal generation end to end. The sales team stopped copy-pasting – every quote is now built from structured data in seconds, with near-zero errors and far more deals out the door.</p>
+        <div class="case-shot"><span>System screenshot · 16:9</span></div>
+        <div class="case-metrics">
+          <div class="metric"><div class="m-num">6 min</div><div class="m-label">Per proposal (was 18)</div></div>
+          <div class="metric"><div class="m-num">2x</div><div class="m-label">Deal volume</div></div>
+          <div class="metric"><div class="m-num">~0</div><div class="m-label">Errors</div></div>
+        </div>
+      </div>
+      <div class="case-side">
+        <div class="case-video"><span>▶ Video testimonial</span></div>
+        <p class="case-quote">"[Client quote – coming soon.]"</p>
+        <div class="case-person">
+          <div class="case-photo"></div>
+          <div>
+            <div class="cp-name">Name Surname</div>
+            <div class="cp-role">Head of Sales · PPG</div>
+          </div>
+          <a href="#" class="cp-linkedin" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-full fade-in">
+      <div class="case-main">
+        <div class="case-tag">Operations · Real Estate</div>
+        <h3>Openhouse – Real Estate</h3>
+        <p class="case-loc">USA</p>
+        <p class="case-desc">Replaced scattered spreadsheets and manual handoffs with one central ops system – connecting listings, deals, and client communication. One source of truth, real-time reporting, and nothing falling through the cracks.</p>
+        <div class="case-shot"><span>System screenshot · 16:9</span></div>
+        <div class="case-metrics">
+          <div class="metric"><div class="m-num">5→1</div><div class="m-label">Tools unified</div></div>
+          <div class="metric"><div class="m-num">Real-time</div><div class="m-label">Reporting</div></div>
+          <div class="metric"><div class="m-num">100%</div><div class="m-label">Deals tracked</div></div>
+        </div>
+      </div>
+      <div class="case-side">
+        <div class="case-video"><span>▶ Video testimonial</span></div>
+        <p class="case-quote">"[Client quote – coming soon.]"</p>
+        <div class="case-person">
+          <div class="case-photo"></div>
+          <div>
+            <div class="cp-name">Name Surname</div>
+            <div class="cp-role">Founder · Openhouse</div>
+          </div>
+          <a href="#" class="cp-linkedin" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+    </div>
+
+    </div><!-- /tst-only -->
+
+    <div style="text-align:center;margin-top:40px">
+      <a href="use-cases.html" class="btn btn-ghost fade-in">→ See all 40+ use cases</a>
+    </div>
+  </div>
+  <div class="block-cta"><a href="#contact" class="btn btn-primary">Get a free consultation</a></div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="section-pad">
+  <div class="container">
+    <div style="text-align:left;margin-bottom:40px">
+      <span class="section-eyebrow fade-in">The difference</span>
+      <h2 class="section-title fade-in">What changes when<br>revenue runs on systems</h2>
+    </div>
+    <div style="max-width:900px">
+      <table class="comparison-table fade-in">
+        <thead>
+          <tr>
+            <th style="width:24%">Area</th>
+            <th style="width:38%">Manual today</th>
+            <th style="width:38%">With Duck</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:700;color:rgba(239,239,239,0.96)">Proposals &amp; quotes</td>
+            <td>15+ min of manual work each</td>
+            <td style="color:var(--yellow)">Generated in under 1 min</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:rgba(239,239,239,0.96)">Follow-ups</td>
+            <td>~40% of leads slip through</td>
+            <td style="color:var(--yellow)">100% followed up, 0 missed</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:rgba(239,239,239,0.96)">Lead gen</td>
+            <td>Sporadic, when there's time</td>
+            <td style="color:var(--yellow)">Consistent, automated pipeline</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:rgba(239,239,239,0.96)">Selling time</td>
+            <td>Lost to admin &amp; data entry</td>
+            <td style="color:var(--yellow)">Reps spend their time closing</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:rgba(239,239,239,0.96)">Pipeline visibility</td>
+            <td>Guesswork &amp; stale sheets</td>
+            <td style="color:var(--yellow)">Real-time, always current</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stats-inner scale-in" style="margin-top:56px">
+      <div class="stat"><div class="stat-num" data-count="40" data-suffix="+">0</div><div class="stat-label">Systems delivered</div></div>
+      <div class="stat"><div class="stat-num">2x</div><div class="stat-label">Deal volume</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Follow-up coverage</div></div>
+      <div class="stat"><div class="stat-num">2–4 wk</div><div class="stat-label">First version live</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <h2 class="fade-in">Let's build your<br><span class="yellow">scale system</span></h2>
+    <p class="fade-in">Tell us what's slowing you down. We'll get back to you within one business day.</p>
+    <form class="contact-form fade-in" id="contactForm" novalidate style="text-align:left;margin-top:36px">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="cf-name">Name</label>
+          <input id="cf-name" name="name" type="text" required placeholder="Your name">
+        </div>
+        <div class="form-field">
+          <label for="cf-email">Email</label>
+          <input id="cf-email" name="email" type="email" required placeholder="you@company.com">
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="cf-note">Note</label>
+        <textarea id="cf-note" name="note" rows="5" required placeholder="What are you trying to fix or automate?"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Send message</button>
+      <p class="form-alt">or <a href="https://calendly.com/ruslan-duck-agency/30min" target="_blank" rel="noopener">book a 30-min call →</a></p>
+      <p class="form-status" id="cfStatus" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo_white_2_lines.png" alt="Duck Agency">
+        <p>Scale your output – not your team.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <a href="operations.html">Operations</a>
+          <a href="revenue.html">Revenue</a>
+          <a href="scale-audit.html">Scale Audit</a>
+          <a href="use-cases.html">Use cases</a>
+          <a href="index.html#team" class="tst-only">Team</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://calendly.com/ruslan-duck-agency/30min" target="_blank">Book a Call</a>
+          <a href="mailto:ruslan@duck-agency.com">ruslan@duck-agency.com</a>
+          <a href="https://www.linkedin.com/in/ruslan-idrysov-duck-agency/" target="_blank">LinkedIn</a>
+          <a href="https://www.upwork.com/freelancers/~01691c71b40f955a52" target="_blank">Upwork</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Duck Agency. Quack &amp; Done.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/ruslan-idrysov-duck-agency/" target="_blank">LinkedIn</a>
+        <a href="https://www.upwork.com/freelancers/~01691c71b40f955a52" target="_blank">Upwork</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
