@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team – Option 1 variations</title>
+<style>
+  :root{--black:#161616;--grey:#202020;--yellow:#FFDC00;--pink:#FF00F5;--white:#EFEFEF;--grad:linear-gradient(135deg,#FFDC00 0%,#781496 100%)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--black);color:var(--white);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  .opt-label{margin:80px 0 8px;font-size:0.78rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--yellow)}
+  .opt-desc{color:rgba(239,239,239,0.6);margin-bottom:36px;font-size:0.95rem;max-width:680px}
+  .eyebrow{font-size:0.8rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(239,239,239,0.55);margin-bottom:12px;display:block}
+  h2{font-size:2.1rem;line-height:1.1;margin-bottom:36px;font-weight:800}
+  h2 .p{color:var(--pink)}
+  .name{font-size:1.02rem;font-weight:700;margin-top:13px}
+  .role{font-size:0.84rem;color:rgba(239,239,239,0.62);margin-top:2px}
+  .photo{background:var(--grad);border-radius:16px;overflow:hidden;position:relative}
+  .photo img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+  hr{border:none;border-top:1px solid rgba(255,255,255,0.08);margin:80px 0 0}
+
+  /* +more card */
+  .more{background:var(--grad);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#161616;padding:20px}
+  .more .plus{font-size:2.6rem;font-weight:900;line-height:1}
+  .more .mt{font-weight:800;font-size:0.95rem;margin-top:8px}
+  .more .ms{font-size:0.78rem;font-weight:600;opacity:0.8;margin-top:4px;max-width:150px}
+  .badge{position:absolute;top:12px;left:12px;background:rgba(22,22,22,0.82);color:var(--yellow);font-size:0.66rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 9px;border-radius:20px}
+
+  /* ---------- Variation A: Hero + 2×2 + wide more ---------- */
+  .a{display:grid;grid-template-columns:1.1fr 1fr;gap:22px;align-items:start}
+  .a .feat .photo{aspect-ratio:4/5}
+  .a .feat .name{font-size:1.5rem}.a .feat .role{font-size:1rem;color:var(--yellow)}
+  .a .rest{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .a .rest .photo{aspect-ratio:1/1}
+  .a-more{margin-top:22px;background:var(--grad);border-radius:16px;color:#161616;display:flex;align-items:center;justify-content:center;gap:16px;padding:22px}
+  .a-more .plus{font-size:2.2rem;font-weight:900}
+  .a-more .txt{font-weight:800;font-size:1.05rem}.a-more .txt span{display:block;font-size:0.82rem;font-weight:600;opacity:0.8}
+  @media(max-width:820px){.a{grid-template-columns:1fr}}
+
+  /* ---------- Variation B: Uniform 3×2 grid ---------- */
+  .b{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .b .photo{aspect-ratio:4/5}
+  .b .founder .photo{outline:2px solid var(--yellow);outline-offset:3px}
+  @media(max-width:760px){.b{grid-template-columns:repeat(2,1fr)}}
+
+  /* ---------- Variation C: Founder hero centered + 5 across ---------- */
+  .c-hero{max-width:300px;margin:0 auto 34px;text-align:center}
+  .c-hero .photo{aspect-ratio:4/5}
+  .c-hero .name{font-size:1.35rem}.c-hero .role{font-size:0.95rem;color:var(--yellow)}
+  .c-row{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+  .c-row .photo{aspect-ratio:4/5}
+  @media(max-width:760px){.c-row{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ============ VARIATION A ============ -->
+  <div class="opt-label">Variation A — Founder hero + 2×2 + wide "+more" bar</div>
+  <div class="opt-desc">You anchor the left. PM leads the 2×2. A full-width gradient bar underneath carries the "+5" so it reads as a statement, not a leftover tile.</div>
+  <section>
+    <span class="eyebrow">The team</span>
+    <h2>Built by operators<br><span class="p">not consultants</span></h2>
+    <div class="a">
+      <div class="feat">
+        <div class="photo"><img src="assets/ruslan.png" alt=""></div>
+        <div class="name">Ruslan Idrysov</div><div class="role">CEO &amp; Co-Founder</div>
+      </div>
+      <div class="rest">
+        <div><div class="photo"><img src="assets/liudmyla.png" alt=""></div><div class="name">Liudmyla Krychevska</div><div class="role">Project Manager</div></div>
+        <div><div class="photo"><img src="assets/huram.png" alt=""></div><div class="name">Huram Karosanidze</div><div class="role">System Architect</div></div>
+        <div><div class="photo"><img src="assets/oleksandr-gulak.png" alt=""></div><div class="name">Oleksandr Gulak</div><div class="role">Full Stack Developer</div></div>
+        <div><div class="photo"><img src="assets/illia.png" alt=""></div><div class="name">Illia Stepanenko</div><div class="role">Ops Automation</div></div>
+      </div>
+    </div>
+    <div class="a-more"><span class="plus">+5</span><span class="txt">Specialists &amp; partners<span>Design, QA and dev talent on call</span></span></div>
+  </section>
+
+  <hr>
+
+  <!-- ============ VARIATION B ============ -->
+  <div class="opt-label">Variation B — Uniform 3×2 grid (founder highlighted)</div>
+  <div class="opt-desc">Six equal cards fill a perfect 3×2. Founder gets a yellow outline + "Founder" badge, PM sits second, and the last tile is the gradient "+5" card. Cleanest and most balanced.</div>
+  <section>
+    <span class="eyebrow">The team</span>
+    <h2>The people behind<br>the <span class="p">systems</span></h2>
+    <div class="b">
+      <div class="founder"><div class="photo"><span class="badge">Founder</span><img src="assets/ruslan.png" alt=""></div><div class="name">Ruslan Idrysov</div><div class="role">CEO &amp; Co-Founder</div></div>
+      <div><div class="photo"><img src="assets/liudmyla.png" alt=""></div><div class="name">Liudmyla Krychevska</div><div class="role">Project Manager</div></div>
+      <div><div class="photo"><img src="assets/huram.png" alt=""></div><div class="name">Huram Karosanidze</div><div class="role">System Architect</div></div>
+      <div><div class="photo"><img src="assets/oleksandr-gulak.png" alt=""></div><div class="name">Oleksandr Gulak</div><div class="role">Full Stack Developer</div></div>
+      <div><div class="photo"><img src="assets/illia.png" alt=""></div><div class="name">Illia Stepanenko</div><div class="role">Ops Automation</div></div>
+      <div class="more" style="aspect-ratio:4/5"><span class="plus">+5</span><span class="mt">Specialists &amp; partners</span><span class="ms">Design, QA and dev talent on call</span></div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- ============ VARIATION C ============ -->
+  <div class="opt-label">Variation C — Founder hero on top + 5 across</div>
+  <div class="opt-desc">Founder centered as the hero, then a symmetric row of five below: PM first, then the crew, closing with the "+5" card. Reads top-down and very tidy.</div>
+  <section>
+    <span class="eyebrow">The team</span>
+    <h2>A lean senior team<br><span class="p">+ automation</span></h2>
+    <div class="c-hero">
+      <div class="photo"><img src="assets/ruslan.png" alt=""></div>
+      <div class="name">Ruslan Idrysov</div><div class="role">CEO &amp; Co-Founder</div>
+    </div>
+    <div class="c-row">
+      <div><div class="photo"><img src="assets/liudmyla.png" alt=""></div><div class="name">Liudmyla Krychevska</div><div class="role">Project Manager</div></div>
+      <div><div class="photo"><img src="assets/huram.png" alt=""></div><div class="name">Huram Karosanidze</div><div class="role">System Architect</div></div>
+      <div><div class="photo"><img src="assets/oleksandr-gulak.png" alt=""></div><div class="name">Oleksandr Gulak</div><div class="role">Full Stack Developer</div></div>
+      <div><div class="photo"><img src="assets/illia.png" alt=""></div><div class="name">Illia Stepanenko</div><div class="role">Ops Automation</div></div>
+      <div class="more"><span class="plus">+5</span><span class="mt">Specialists</span><span class="ms">&amp; partners on call</span></div>
+    </div>
+  </section>
+
+  <div style="height:120px"></div>
+</div>
+</body>
+</html>

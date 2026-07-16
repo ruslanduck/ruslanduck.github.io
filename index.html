@@ -67,7 +67,7 @@
       <a href="revenue.html">Revenue</a>
       <a href="scale-audit.html">Scale Audit</a>
       <a href="use-cases.html">Results</a>
-      <a href="index.html#team" class="tst-only">Team</a>
+      <a href="index.html#team">Team</a>
     </div>
     <a href="https://calendly.com/ruslan-duck-agency/30min" target="_blank" rel="noopener" class="nav-cta"><span>Book a Call →</span></a>
     <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -78,7 +78,7 @@
   <a href="revenue.html">Revenue</a>
   <a href="scale-audit.html">Scale Audit</a>
   <a href="use-cases.html">Results</a>
-  <a href="index.html#team" class="tst-only">Team</a>
+  <a href="index.html#team">Team</a>
   <a href="https://calendly.com/ruslan-duck-agency/30min" target="_blank" rel="noopener" style="color:var(--yellow)">Book a Call →</a>
 </div>
 
@@ -549,64 +549,149 @@
 </section>
 
 <!-- BLOCK 10: TEAM -->
-<section class="section-pad tst-only" id="team">
+<section class="section-pad" id="team">
   <div class="container">
-    <div style="text-align:left;margin-bottom:56px">
+    <div style="text-align:left;margin-bottom:40px">
       <span class="section-eyebrow fade-in">The team</span>
-      <h2 class="section-title fade-in">Built by operators<br><span class="pink">not consultants</span></h2>
-      <p class="section-sub fade-in" style="margin:0">We've shipped real systems, not slides about them. Every person on the team has built product that companies rely on daily.</p>
+      <h2 class="section-title fade-in">Your COO, dev team &amp; AI consultant –<br><span class="pink">in one team</span></h2>
     </div>
-    <div class="team-static">
-      <!-- Photos: swap .team-photo.ph for <div class="team-photo"><img ...></div>. Facts/bios below are placeholders – edit freely. -->
-      <div class="team-card">
-        <div class="team-photo"><img src="assets/ruslan.jpg" alt="Ruslan Idrysov">
-          <div class="team-overlay"><p>Ran an 80-person operations department before founding Duck. Now leads system strategy and architecture across every client engagement – turning operational chaos into systems that run themselves.</p></div>
-        </div>
-        <h4>Ruslan Idrysov</h4>
-        <p class="role">CEO &amp; Co-Founder</p>
-        <p class="team-fact">Ran an 80-person ops department before building the systems that replaced it.</p>
+    <style>
+      #team .team-cap .stack{display:flex;align-items:center;margin-bottom:30px}
+      #team .team-cap .av{position:relative;width:100px;height:100px;border-radius:50%;border:3px solid var(--black);margin-left:-20px;padding:0;background:linear-gradient(135deg,#FFDC00 0%,#781496 100%);box-shadow:0 0 0 1px rgba(255,255,255,.1);transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .4s ease;cursor:pointer}
+      #team .team-cap .av:first-child{margin-left:0}
+      #team .team-cap .av img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:top;display:block}
+      #team .team-cap .av:hover,#team .team-cap .av.active{transform:scale(1.1);z-index:40;box-shadow:0 0 0 3px rgba(255,220,0,.78),0 12px 30px rgba(255,0,245,.32)}
+      #team .team-cap .more-circle{width:100px;height:100px;border-radius:50%;margin-left:-20px;border:3px solid var(--black);background:linear-gradient(135deg,#FFDC00 0%,#781496 100%);display:flex;align-items:center;justify-content:center;color:#161616;font-weight:900;font-size:.92rem;text-align:center;line-height:1.1}
+      /* persistent detail card */
+      #team .team-cap .tx-detail{display:flex;gap:38px;align-items:stretch;position:relative;overflow:hidden;background:linear-gradient(150deg,rgba(255,220,0,.07),rgba(255,0,245,.07)) ,#1b1b1e;border:1px solid rgba(255,255,255,.1);border-radius:26px;padding:34px;margin-bottom:22px;max-width:880px;height:404px}
+      #team .team-cap .tx-detail::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--yellow),var(--pink))}
+      #team .team-cap .tx-photo{flex:0 0 268px;width:268px;align-self:stretch;border-radius:18px;overflow:hidden;background:linear-gradient(135deg,#FFDC00 0%,#781496 100%)}
+      #team .team-cap .tx-photo img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+      #team .team-cap .tx-text{flex:1;display:flex;flex-direction:column;justify-content:flex-start}
+      #team .team-cap .tx-head{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:16px}
+      #team .team-cap .tx-name{font-size:2.1rem;font-weight:800;line-height:1.1}
+      #team .team-cap .tx-role{display:inline-block;align-self:flex-start;font-size:1rem;font-weight:800;letter-spacing:.02em;color:var(--yellow);margin-bottom:20px}
+      #team .team-cap .tx-bio{font-size:1.08rem;line-height:1.6;color:rgba(239,239,239,.86);margin-bottom:20px;max-width:420px}
+      #team .team-cap .tx-loc{align-self:flex-start;display:inline-flex;align-items:center;font-size:.82rem;font-weight:700;color:#161616;background:linear-gradient(135deg,var(--yellow),var(--pink));border-radius:999px;padding:6px 15px;margin-bottom:18px}
+      #team .team-cap .tx-fact-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-left:3px solid var(--yellow);border-radius:12px;padding:13px 17px;max-width:420px}
+      #team .team-cap .tx-fact-label{display:block;font-size:.68rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;background:linear-gradient(90deg,var(--yellow),var(--pink));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px}
+      #team .team-cap .tx-fact{font-size:.98rem;color:rgba(239,239,239,.88)}
+      #team .team-cap .tx-li{display:inline-flex;align-items:center;gap:7px;width:max-content;font-size:.8rem;font-weight:700;color:var(--white);text-decoration:none;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:7px 13px;transition:all .25s ease}
+      #team .team-cap .tx-li svg{width:14px;height:14px}
+      #team .team-cap .tx-li:hover{border-color:transparent;background:linear-gradient(135deg,var(--yellow),var(--pink));color:#161616;transform:translateY(-2px)}
+      /* mobile carousel nav */
+      #team .team-cap .tx-nav{display:none;align-items:center;justify-content:center;gap:18px;margin-bottom:26px}
+      #team .team-cap .tx-prev,#team .team-cap .tx-next{width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);color:var(--white);font-size:1.5rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s ease}
+      #team .team-cap .tx-prev:active,#team .team-cap .tx-next:active{background:linear-gradient(135deg,var(--yellow),var(--pink));color:#161616;border-color:transparent}
+      #team .team-cap .tx-dots{display:flex;gap:9px}
+      #team .team-cap .tx-dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.28);border:none;padding:0;cursor:pointer;transition:all .3s ease}
+      #team .team-cap .tx-dot.on{width:24px;border-radius:999px;background:linear-gradient(135deg,var(--yellow),var(--pink))}
+      #team .team-cap .tx-detail.anim .tx-photo{animation:dPhoto .55s cubic-bezier(.16,1,.3,1) both}
+      #team .team-cap .tx-detail.anim .tx-name{animation:dText .5s cubic-bezier(.16,1,.3,1) .04s both}
+      #team .team-cap .tx-detail.anim .tx-role{animation:dText .5s cubic-bezier(.16,1,.3,1) .09s both}
+      #team .team-cap .tx-detail.anim .tx-bio{animation:dText .5s cubic-bezier(.16,1,.3,1) .14s both}
+      #team .team-cap .tx-detail.anim .tx-loc{animation:dText .5s cubic-bezier(.16,1,.3,1) .19s both}
+      #team .team-cap .tx-detail.anim .tx-fact-box{animation:dText .5s cubic-bezier(.16,1,.3,1) .24s both}
+      @keyframes dPhoto{from{opacity:0;transform:scale(.93) translateY(10px)}to{opacity:1;transform:none}}
+      @keyframes dText{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:none}}
+      #team .team-cap .tx-note{font-size:.9rem;color:rgba(239,239,239,.6);margin-bottom:44px;line-height:1.5}
+      #team .team-cap .tx-note b{color:var(--white)}
+      #team .team-cap .cap-title{font-size:.82rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(239,239,239,.5);margin:8px 0 16px}
+      #team .team-cap .chips{display:flex;flex-wrap:wrap;gap:11px}
+      #team .team-cap .chip{padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);font-size:.92rem;font-weight:600;color:var(--white);transition:all .25s ease}
+      #team .team-cap .chip:hover{border-color:transparent;background:linear-gradient(135deg,#FFDC00 0%,#781496 100%);color:#161616;transform:translateY(-2px)}
+      #team .team-cap .chip.hot{border-color:transparent;background:linear-gradient(135deg,#FFDC00 0%,#781496 100%);color:#161616}
+      @media(max-width:640px){
+        #team .team-cap .stack{display:none}
+        #team .team-cap .tx-nav{display:flex}
+        #team .team-cap .tx-detail{flex-direction:column;text-align:center;align-items:center;height:auto}
+        #team .team-cap .tx-photo{width:100%;flex-basis:auto;aspect-ratio:4/5}
+        #team .team-cap .tx-text{align-items:center}
+        #team .team-cap .tx-head{justify-content:center}
+        #team .team-cap .tx-role,#team .team-cap .tx-loc{align-self:center}
+        #team .team-cap .tx-bio{max-width:none}
+      }
+    </style>
+    <div class="team-cap">
+      <div class="stack">
+        <button type="button" class="tx-av av active" data-img="assets/ruslan.png" data-name="Ruslan Idrysov" data-role="CEO &amp; Co-Founder" data-bio="Ex-Head of an 80-person Ops department – knows operations from the inside." data-loc="Czech Republic" data-fact="Loves Georgian food" data-li="https://www.linkedin.com/in/ruslan-idrysov-duck-agency/"><img src="assets/ruslan.png" alt="Ruslan Idrysov"></button>
+        <button type="button" class="tx-av av" data-img="assets/liudmyla.png" data-name="Liudmyla Krychevska" data-role="Project Manager" data-bio="10 years in project coordination. Puts communication above everything." data-loc="Georgia" data-fact="Certified English translator"><img src="assets/liudmyla.png" alt="Liudmyla Krychevska"></button>
+        <button type="button" class="tx-av av" data-img="assets/huram.png" data-name="Huram Karosanidze" data-role="Ops Automation Specialist" data-bio="Built 20+ operational systems across different industries." data-loc="Poland" data-fact="Loves robotics"><img src="assets/huram.png" alt="Huram Karosanidze"></button>
+        <button type="button" class="tx-av av" data-img="assets/oleksandr-gulak.png" data-name="Oleksandr Gulak" data-role="Full Stack Developer" data-bio="6 years in development – building systems that actually work." data-loc="Ukraine" data-fact="Owner of the cutest chihuahua"><img src="assets/oleksandr-gulak.png" alt="Oleksandr Gulak"></button>
+        <button type="button" class="tx-av av" data-img="assets/illia.png" data-name="Illia Stepanets" data-role="MVP Expert" data-bio="Built 25+ MVPs across different fields. Ships a fully functional MVP in days, not months." data-loc="Ukraine" data-fact="Ex-fitness coach"><img src="assets/illia.png" alt="Illia Stepanets"></button>
+        <div class="more-circle">+ team</div>
       </div>
-      <div class="team-card">
-        <div class="team-photo ph">
-          <div class="team-overlay"><p>Coordinates scope, timelines and delivery across every client project – the single point of clarity from kickoff to launch and the ongoing retainer.</p></div>
+      <div class="tx-note"><b>5 senior operators in-house</b> + a network of specialists on call</div>
+      <div class="tx-detail anim">
+        <div class="tx-photo"><img src="assets/ruslan.png" alt="Ruslan Idrysov"></div>
+        <div class="tx-text">
+          <div class="tx-head">
+            <h4 class="tx-name">Ruslan Idrysov</h4>
+            <a class="tx-li" href="https://www.linkedin.com/in/ruslan-idrysov-duck-agency/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+          </div>
+          <p class="tx-role">CEO &amp; Co-Founder</p>
+          <p class="tx-bio">Ex-Head of an 80-person Ops department – knows operations from the inside.</p>
+          <span class="tx-loc">Czech Republic</span>
+          <div class="tx-fact-box"><span class="tx-fact">Loves Georgian food</span></div>
         </div>
-        <h4>Liudmyla Krychevska</h4>
-        <p class="role">Project Manager</p>
-        <p class="team-fact">Keeps every build on track, from kickoff to launch.</p>
       </div>
-      <div class="team-card">
-        <div class="team-photo ph">
-          <div class="team-overlay"><p>Turns messy real-world workflows into clean, scalable system designs – choosing the right tools and data models so automations keep holding up as the business grows.</p></div>
-        </div>
-        <h4>Huram Karkosanidze</h4>
-        <p class="role">System Architect</p>
-        <p class="team-fact">Designs the architecture behind every custom system we ship.</p>
+      <div class="tx-nav">
+        <button type="button" class="tx-prev" aria-label="Previous team member">&#8249;</button>
+        <div class="tx-dots"></div>
+        <button type="button" class="tx-next" aria-label="Next team member">&#8250;</button>
       </div>
-      <div class="team-card">
-        <div class="team-photo"><img src="assets/oleksandr-gulak.png" alt="Oleksandr Gulak">
-          <div class="team-overlay"><p>Ships custom internal tools, dashboards and integrations end to end – from database to interface – so clients get real software they use daily, not prototypes.</p></div>
-        </div>
-        <h4>Oleksandr Gulak</h4>
-        <p class="role">Full Stack Developer</p>
-        <p class="team-fact">Builds the apps, dashboards and integrations that run the business.</p>
-      </div>
-      <div class="team-card">
-        <div class="team-photo ph">
-          <div class="team-overlay"><p>Maps and automates operational processes across Make, n8n and custom code – removing manual steps and connecting the tools a business already runs on.</p></div>
-        </div>
-        <h4>Illia Stepanenko</h4>
-        <p class="role">Senior Operations Automation Specialist</p>
-        <p class="team-fact">Automates the repetitive workflows that eat a team's day.</p>
-      </div>
-      <div class="team-card">
-        <div class="team-photo ph">
-          <div class="team-overlay"><p>Builds the outbound, nurture and content engines that keep the pipeline full – so marketing runs consistently and leads never dry up, without manual effort.</p></div>
-        </div>
-        <h4>Helen Zakoryan</h4>
-        <p class="role">Marketing Automation Specialist</p>
-        <p class="team-fact">Automates lead gen, outreach and content so the pipeline stays full.</p>
+      <div class="cap-title">What the team &amp; network cover</div>
+      <div class="chips">
+        <span class="chip">System Architecture</span>
+        <span class="chip">Operations Automation</span>
+        <span class="chip">Revenue &amp; Sales Automation</span>
+        <span class="chip">Marketing Automation</span>
+        <span class="chip">AI Agents &amp; LLM Solutions</span>
+        <span class="chip">Custom Software Development</span>
+        <span class="chip">Data &amp; Dashboards</span>
+        <span class="chip">Business Analysis</span>
+        <span class="chip">Integrations &amp; APIs</span>
+        <span class="chip">Project Delivery</span>
       </div>
     </div>
+    <script>
+      (function(){
+        var root=document.querySelector('#team .team-cap'); if(!root) return;
+        var avs=Array.prototype.slice.call(root.querySelectorAll('.tx-av'));
+        var detail=root.querySelector('.tx-detail');
+        var img=root.querySelector('.tx-photo img');
+        var nm=root.querySelector('.tx-name'), rl=root.querySelector('.tx-role'), bio=root.querySelector('.tx-bio'), loc=root.querySelector('.tx-loc'), fact=root.querySelector('.tx-fact'), factBox=root.querySelector('.tx-fact-box'), li=root.querySelector('.tx-li');
+        var dotsWrap=root.querySelector('.tx-dots'), dots=[];
+        var idx=0, current=null;
+        avs.forEach(function(a){
+          var d=document.createElement('button'); d.type='button'; d.className='tx-dot'; d.setAttribute('aria-label',a.dataset.name);
+          d.addEventListener('click',function(){show(a);});
+          dotsWrap.appendChild(d); dots.push(d);
+        });
+        function show(el){
+          if(el===current) return; current=el; idx=avs.indexOf(el);
+          img.src=el.dataset.img; img.alt=el.dataset.name;
+          nm.textContent=el.dataset.name; rl.textContent=el.dataset.role; bio.textContent=el.dataset.bio; loc.textContent=el.dataset.loc;
+          if(el.dataset.fact){fact.textContent=el.dataset.fact; factBox.style.display='';}else{factBox.style.display='none';}
+          if(el.dataset.li){li.href=el.dataset.li; li.style.display='';}else{li.style.display='none';}
+          avs.forEach(function(a){a.classList.remove('active');}); el.classList.add('active');
+          dots.forEach(function(d,i){d.classList.toggle('on',i===idx);});
+          detail.classList.remove('anim'); void detail.offsetWidth; detail.classList.add('anim');
+        }
+        function step(n){show(avs[(idx+n+avs.length)%avs.length]);}
+        avs.forEach(function(a){
+          a.addEventListener('mouseenter',function(){show(a);});
+          a.addEventListener('focus',function(){show(a);});
+          a.addEventListener('click',function(){show(a);});
+        });
+        root.querySelector('.tx-prev').addEventListener('click',function(){step(-1);});
+        root.querySelector('.tx-next').addEventListener('click',function(){step(1);});
+        var sx=null;
+        detail.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+        detail.addEventListener('touchend',function(e){if(sx===null)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){step(dx<0?1:-1);}sx=null;});
+        current=avs[0]; idx=0; dots[0].classList.add('on');
+      })();
+    </script>
   </div>
 </section>
 
@@ -731,7 +816,7 @@
           <a href="revenue.html">Revenue</a>
           <a href="scale-audit.html">Scale Audit</a>
           <a href="use-cases.html">Use cases</a>
-          <a href="index.html#team" class="tst-only">Team</a>
+          <a href="index.html#team">Team</a>
           <a href="blog.html">Blog</a>
         </div>
         <div class="footer-col">
