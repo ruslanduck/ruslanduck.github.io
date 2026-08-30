@@ -8,7 +8,11 @@
   <meta name="keywords" content="business automation, operations automation, revenue automation, scale business, custom ERP, custom CRM, process automation">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://duck-agency.com/">
-  <link rel="icon" type="image/png" href="assets/icon.png">
+  <link rel="icon" type="image/svg+xml" href="assets/icon-flat-small.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon-180.png">
+  <link rel="manifest" href="site.webmanifest">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://duck-agency.com/">
   <meta property="og:site_name" content="Duck Agency">
@@ -17,15 +21,16 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Duck Agency – Scale Your Business Without Scaling Your Team">
   <meta name="twitter:description" content="We systemize and automate operations and revenue for growing businesses. Custom, done-for-you. 40+ systems built across 8 industries.">
-  <meta property="og:image" content="https://duck-agency.com/assets/logo_white_long.png">
-  <meta name="twitter:image" content="https://duck-agency.com/assets/logo_white_long.png">
+  <meta property="og:image" content="https://duck-agency.com/assets/og-image-1200x630.png">
+  <meta name="twitter:image" content="https://duck-agency.com/assets/og-image-1200x630.png">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="duck-refresh.css">
   <!-- seo-extra -->
-  <meta name="theme-color" content="#161616">
+  <meta name="theme-color" content="#0D0D0D">
   <meta name="author" content="Duck Agency">
   <meta property="og:locale" content="en_US">
-  <meta property="og:image:alt" content="Duck Agency – operations & revenue automation">
-  <meta name="twitter:image:alt" content="Duck Agency – operations & revenue automation">
+  <meta property="og:image:alt" content="Duck Agency — Quack &amp; Done">
+  <meta name="twitter:image:alt" content="Duck Agency — Quack &amp; Done">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 
@@ -57,11 +62,25 @@
   </script>
 </head>
 <body>
+<svg style="position:absolute;width:0;height:0" aria-hidden="true">
+  <filter id="duck-glass-refraction" primitiveUnits="objectBoundingBox">
+    <feImage href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAIAAABMXPacAAABOUlEQVR42u3Zyw3CQBBEwQYROFHb6+9ysIxIAM1h62nlALo0Jz96f0/JlMz3a0lLlvu73m9LtmRP9uRIzqRH6UlPzuS4x7mG+u62/OzZfna+Nn9lsmFlAMoBZiMAAKA6gGYEAEMDLEZwAS5AdQCrEQAAUB3AZgQAQwPsRgAwNMBhhFqA0wi1AH7slvY0AQAAAgBAAAAIAAABACAAAAQAgAAAEAAAAgBAAAAIAAABACAAAAQAgAAAEAAAAgBAAAAIAAABACAAAAQAgAAAEAAAAgBAAAAIAAABACAAAAQAgAAAACAAAAQAgAAAEAAAAgBAAAAIAAABACAAAAQAgP7SK90IAIYGOI1QC3AYoRZgNwKAoQE2IwAYGmA1AgAAqgNYjFAL0IzgAlyAAAwLMBsBAADVAUxGcAED9wFO1VPU4s3CQQAAAABJRU5ErkJggg==" x="0" y="0" width="1" height="1" preserveAspectRatio="none" result="map"/>
+    <feGaussianBlur in="SourceGraphic" stdDeviation="0.006" result="blur"/>
+    <feDisplacementMap in="blur" in2="map" scale="0.014" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+
+  <!-- курсор: пропорции как в референсе (круг ~30px), поэтому scale=1 работает как задумано -->
+  <filter id="duck-glass-cursor" primitiveUnits="objectBoundingBox">
+    <feImage href="data:image/png;base64,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" x="0" y="0" width="1" height="1" preserveAspectRatio="none" result="cmap"/>
+    <feGaussianBlur in="SourceGraphic" stdDeviation="0.02" result="cblur"/>
+    <feDisplacementMap in="cblur" in2="cmap" scale="1" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
 
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="assets/logo_white_long.png" alt="Duck Agency"></a>
+    <a href="index.html" class="nav-logo"><img src="assets/logo-nav-white.svg" alt="Duck Agency" width="210" height="34"></a>
     <div class="nav-links">
       <a href="operations.html">Operations</a>
       <a href="revenue.html">Revenue</a>
@@ -91,19 +110,20 @@
     <div class="particles"></div>
   </div>
   <div class="container">
+    <div class="hero-main">
     <div class="hero-badge hero-enter">
       <span class="spark">✦</span>
       Operational scale partner for growing businesses
     </div>
-    <h1 class="hero-enter">We build <span class="pink">custom systems</span> that automate operations and sales for <span class="pink">growing businesses</span></h1>
-    <p class="hero-sub hero-enter">Your team closes more deals, runs ops on autopilot, and generates more leads – handling 2–3x the work <span class="pink">without new hires</span>. <span style="white-space:nowrap">Custom-built</span> and done for you, end to end.</p>
+    <h1 class="hero-enter">We build <span class="pink">custom systems</span> that automate sales and&nbsp;operations for&nbsp;<span class="pink">growing businesses</span></h1>
+    <p class="hero-sub hero-enter">Same team, same pipeline – <span style="white-space:nowrap">2–3x</span> the work handled, more deals closed, <span class="pink">without new hires</span>.</p>
     <div class="hero-actions hero-enter">
       <a href="https://calendly.com/ruslan-duck-agency/30min" target="_blank" rel="noopener" class="btn btn-primary">Book a free scale audit</a>
       <a href="#cases" class="btn btn-secondary">Success Stories →</a>
     </div>
     <!-- Trust bar -->
-    <div class="hero-enter" style="margin-top:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.07);animation-delay:0.7s">
-      <div style="display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px 32px;margin-bottom:28px">
+    <div class="hero-enter" style="margin-top:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.07);animation-delay:0.7s">
+      <div style="display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px 32px">
         <span style="font-size:0.95rem;color:rgba(239,239,239,0.84)">⭐ 5.0 on <a href="https://www.upwork.com/freelancers/~01691c71b40f955a52" target="_blank" rel="noopener" style="color:rgba(239,239,239,0.84);text-decoration:underline;text-underline-offset:3px">Upwork</a></span>
         <span class="hero-sep"></span>
         <span style="font-size:0.95rem;color:rgba(239,239,239,0.84)">⭐ 5.0 on <a href="https://clutch.co" target="_blank" rel="noopener" style="color:rgba(239,239,239,0.84);text-decoration:underline;text-underline-offset:3px">Clutch</a></span>
@@ -114,7 +134,10 @@
         <span class="hero-sep"></span>
         <span style="font-size:0.95rem;color:rgba(239,239,239,0.84)">Since 2022</span>
       </div>
-      <p style="font-size:0.82rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(239,239,239,0.64);margin-bottom:20px">40+ businesses trust Duck Agency</p>
+    </div>
+    </div>
+      <div class="reveal-on-scroll">
+      <p style="font-size:0.82rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(239,239,239,0.64);margin-top:24px;margin-bottom:20px">40+ businesses trust Duck Agency</p>
       <div class="logo-carousel">
         <div class="logo-track">
           <img class="logo-img" src="assets/logo-odelet.png" alt="Odelet">
@@ -143,7 +166,7 @@
           <img class="logo-img" src="assets/logo-bazaraki.png" alt="" aria-hidden="true">
         </div>
       </div>
-    </div>
+      </div>
   </div>
 </section>
 
@@ -159,27 +182,27 @@
       <div class="pn-block neg fade-in">
         <div class="pn-head"><span class="pn-ic neg">✕</span> Running on manual work</div>
         <ul class="pn-list">
-          <li>Sales reps lose selling time to manual admin &amp; data entry</li>
-          <li>Orders pile up faster than the team can process them</li>
-          <li>Data scattered across 5+ disconnected tools</li>
-          <li>Leads go cold – follow-ups get forgotten</li>
-          <li>Reporting is hours of manual copy-paste</li>
-          <li>Proposals &amp; quotes built by hand, full of errors</li>
-          <li>Onboarding drags on for weeks</li>
-          <li>Every bit of growth means another hire</li>
+          <li>Manual admin</li>
+          <li>Orders pile up</li>
+          <li>Data scattered</li>
+          <li>Leads go cold</li>
+          <li>Manual reporting</li>
+          <li>Quotes by hand, error-prone</li>
+          <li>Slow onboarding</li>
+          <li>Growth = more hires</li>
         </ul>
       </div>
       <div class="pn-block pos fade-in">
         <div class="pn-head"><span class="pn-ic pos">✓</span> Running on systems built by Duck</div>
         <ul class="pn-list">
-          <li>Sales reps spend their time <strong>selling</strong> – automation handles the admin, so they close more</li>
-          <li>The team keeps up with rising order volume – processes are systemized and automated</li>
-          <li>One source of truth, synced in real time</li>
-          <li>Nothing slips – sequences follow up for you</li>
-          <li>Dashboards that update themselves, instantly</li>
-          <li>Proposals &amp; quotes generated in seconds</li>
-          <li>New hires productive in days, not weeks</li>
-          <li>Your team handles 2–3x the work, no new headcount</li>
+          <li>Reps just sell</li>
+          <li>Team absorbs volume</li>
+          <li>One source of truth</li>
+          <li>Nothing slips</li>
+          <li>Live dashboards</li>
+          <li>Quotes in seconds</li>
+          <li>Fast onboarding</li>
+          <li>2–3x output, same team</li>
         </ul>
       </div>
     </div>
@@ -192,7 +215,7 @@
     <div style="text-align:left;margin-bottom:48px">
       <span class="section-eyebrow fade-in">What we do</span>
       <h2 class="section-title fade-in">We scale two parts<br>of your business</h2>
-      <p class="section-sub fade-in" style="margin:0">Operations inside, revenue outside (sales + marketing). Both running on systems that work without your team doing it manually.</p>
+      <p class="section-sub fade-in" style="margin:0">Operations inside, sales outside. Both running on systems that work without your team doing it manually.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:28px" class="tools-two-col">
       <div class="service-card fade-in stagger-1">
@@ -217,23 +240,23 @@
         <a href="operations.html" class="btn btn-ghost">→ How we do it</a>
       </div>
       <div class="service-card fade-in stagger-2">
-        <h3>Revenue efficiency</h3>
+        <h3>Sales efficiency</h3>
         <div class="svc-pain">
           <span class="svc-pain-label">The problem</span>
-          <p>Leads slip, follow-ups get forgotten, and proposals eat your sellers' time.</p>
+          <p>Admin, manual quotes and follow-ups eat into your reps' selling time.</p>
         </div>
         <span class="svc-build-label">What we build</span>
         <ul class="checks">
           <li>CRM setup &amp; automation</li>
           <li>Proposal &amp; quote generation</li>
-          <li>AI note-takers &amp; follow-up sequences</li>
-          <li>Outbound automation (Clay, Apollo, LinkedIn)</li>
-          <li>Social media &amp; content automation</li>
+          <li>AI note-takers &amp; follow-ups</li>
+          <li>Commission &amp; KPI automation</li>
+          <li>Deal handoff to ops – automatic</li>
         </ul>
         <div class="svc-result">
-          <span class="sr-before">Leads slip, admin eats selling time</span>
+          <span class="sr-before">Admin eats selling time</span>
           <span class="sr-arrow">→</span>
-          <span class="sr-after">More leads, more deals closed</span>
+          <span class="sr-after">Reps sell, deals close faster</span>
         </div>
         <a href="revenue.html" class="btn btn-ghost">→ How we do it</a>
       </div>
@@ -373,40 +396,55 @@
   <div class="block-cta"><a href="#contact" class="btn btn-primary">Get a free consultation</a></div>
 </section>
 
-<!-- BLOCK 03b: GROWTH FLYWHEEL -->
-<section class="section-pad" id="flywheel">
+<!-- BLOCK 03b: CHEAPER THAN 1 HIRE -->
+<section class="section-pad" id="value">
+  <style>
+    #value .value-lead{text-align:center;margin-bottom:40px}
+    #value .value-points{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-bottom:44px}
+    #value .vp{display:inline-flex;align-items:center;gap:9px;padding:11px 20px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:var(--glass-bg);box-shadow:inset 0 1px 0 rgba(255,255,255,.2);font-weight:600;font-size:.95rem}
+    #value .vp .vp-ic{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--yellow),var(--pink));color:#161616;font-weight:900;font-size:.78rem}
+    #value .hire-compare{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;max-width:840px;margin:0 auto}
+    #value .hc-col{border-radius:20px;padding:26px 28px;border:1px solid rgba(255,255,255,.14);box-shadow:var(--glass-shadow)}
+    #value .hc-neg{background:var(--glass-bg)}
+    #value .hc-pos{background:linear-gradient(160deg,rgba(255,220,0,.12),rgba(255,0,245,.1)),var(--glass-bg);border-color:rgba(255,220,0,.35)}
+    #value .hc-head{font-size:1.15rem;font-weight:800;margin-bottom:16px}
+    #value .hc-pos .hc-head{color:var(--yellow)}
+    #value .hc-row{display:flex;align-items:center;gap:12px;padding:11px 0;font-size:1rem;color:rgba(239,239,239,.9)}
+    #value .hc-row + .hc-row{border-top:1px solid rgba(255,255,255,.07)}
+    #value .hc-ic{flex:0 0 24px;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:900}
+    #value .hc-neg .hc-ic{background:rgba(255,90,90,.15);color:#ff7a7a}
+    #value .hc-pos .hc-ic{background:linear-gradient(135deg,var(--yellow),var(--pink));color:#161616}
+    #value .hc-vs{font-weight:800;color:rgba(239,239,239,.5);font-size:.85rem;text-transform:uppercase;letter-spacing:.1em}
+    #value .value-note{text-align:center;margin-top:26px;font-size:.9rem;color:rgba(239,239,239,.55)}
+    @media(max-width:640px){#value .hire-compare{grid-template-columns:1fr;gap:14px}}
+  </style>
   <div class="container">
-    <div style="text-align:center;margin-bottom:48px">
-      <span class="section-eyebrow fade-in">The flywheel</span>
-      <h2 class="section-title fade-in">Each part feeds<br>the <span class="pink">next</span></h2>
-      <p class="section-sub fade-in" style="margin:0 auto">Automate one part and it compounds – each output fuels the next. Then it spins again, faster.</p>
+    <div class="value-lead">
+      <span class="section-eyebrow fade-in">Why it pays for itself</span>
+      <h2 class="section-title fade-in">Cheaper than <span class="pink">1 hire</span></h2>
+      <p class="section-sub fade-in" style="margin:0 auto;max-width:660px">A dedicated Duck Agency team costs less than one ops or RevOps hire – and it never quits, never needs onboarding, never takes PTO.</p>
     </div>
-    <div class="flywheel">
-      <div class="fw-stage fade-in stagger-1">
-        <h4>Lead generation, automated</h4>
-        <p>Outbound, follow-ups and content run on autopilot.</p>
-        <div class="fw-out">More leads</div>
+    <div class="value-points fade-in">
+      <span class="vp"><span class="vp-ic">✓</span> No recruiting</span>
+      <span class="vp"><span class="vp-ic">✓</span> Live in weeks</span>
+      <span class="vp"><span class="vp-ic">✓</span> Scales with you</span>
+    </div>
+    <div class="hire-compare fade-in">
+      <div class="hc-col hc-neg">
+        <div class="hc-head">1 New Hire</div>
+        <div class="hc-row"><span class="hc-ic">✕</span> $70–90k / year</div>
+        <div class="hc-row"><span class="hc-ic">✕</span> Weeks to onboard</div>
+        <div class="hc-row"><span class="hc-ic">✕</span> Turnover risk</div>
       </div>
-      <div class="fw-arrow fade-in stagger-1">→</div>
-      <div class="fw-stage fade-in stagger-2">
-        <h4>Sales, supercharged</h4>
-        <p>Automated pipeline, proposals and follow-up – reps just close.</p>
-        <div class="fw-out">More sales</div>
-      </div>
-      <div class="fw-arrow fade-in stagger-2">→</div>
-      <div class="fw-stage fade-in stagger-3">
-        <h4>Operations that absorb it</h4>
-        <p>Systemized ops absorb the volume – <span style="white-space:nowrap">2–3x</span> the work, no new hires.</p>
-        <div class="fw-out">More orders, handled</div>
+      <div class="hc-vs">vs</div>
+      <div class="hc-col hc-pos">
+        <div class="hc-head">Duck Agency</div>
+        <div class="hc-row"><span class="hc-ic">✓</span> Live in weeks</div>
+        <div class="hc-row"><span class="hc-ic">✓</span> Documented, not tribal</div>
+        <div class="hc-row"><span class="hc-ic">✓</span> Scales with growth</div>
       </div>
     </div>
-    <div class="fw-converge fade-in">↓ all three compound into ↓</div>
-    <div class="fw-result fade-in">
-      <span class="fw-result-label">The result</span>
-      <span class="fw-result-big">Scale</span>
-      <span class="fw-result-sub">profitable growth without growing your team</span>
-      <span class="fw-result-loop"><span class="fw-loop-ic">↺</span> then it feeds back into lead generation – and the flywheel spins faster</span>
-    </div>
+    <p class="value-note fade-in">Usually 15–25% of what you already spend on your current stack.</p>
   </div>
 </section>
 
@@ -423,11 +461,12 @@
     </div>
     <p class="section-sub fade-in" style="text-align:center;max-width:620px;margin:0 auto 32px">We work with fast-growing startups and mid-market companies – typically 20 to 500 people – where operations, sales, or marketing are holding back growth.</p>
     <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:40px" class="fade-in">
+      <span class="industry-chip">Staffing &amp; Recruiting</span>
+      <span class="industry-chip">Multi-Entity Groups</span>
       <span class="industry-chip">E-commerce</span>
       <span class="industry-chip">Manufacturing</span>
       <span class="industry-chip">Engineering</span>
       <span class="industry-chip">Logistics</span>
-      <span class="industry-chip">Real Estate</span>
       <span class="industry-chip">Professional Services</span>
       <span class="industry-chip" style="opacity:0.6">&amp; more</span>
     </div>
@@ -438,6 +477,9 @@
 
 <!-- BLOCK 06: OUR APPROACH -->
 <section class="section-pad" id="process">
+  <style>
+    #process .rm-tag{display:inline-block;margin-top:6px;font-size:.66rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--yellow);border:1px solid rgba(255,220,0,.4);border-radius:999px;padding:3px 9px;white-space:nowrap}
+  </style>
   <div class="container">
     <div style="text-align:center;margin-bottom:56px">
       <span class="section-eyebrow fade-in">Our approach</span>
@@ -449,24 +491,28 @@
         <div class="rm-week">Week 1</div>
         <div class="rm-dot"></div>
         <h4>Scale Audit</h4>
+        <span class="rm-tag">Fixed price</span>
         <p>We map your workflows and find where time and money leak out.</p>
       </div>
       <div class="rm-step fade-in stagger-2">
         <div class="rm-week">Week 2</div>
         <div class="rm-dot"></div>
         <h4>System Design</h4>
+        <span class="rm-tag">Included</span>
         <p>Architecture built around how your business actually works.</p>
       </div>
       <div class="rm-step highlight fade-in stagger-3">
         <div class="rm-week">Week 3–4</div>
         <div class="rm-dot"></div>
         <h4>Build &amp; Launch</h4>
+        <span class="rm-tag">Fixed price · by milestone</span>
         <p>First working version live in 2–4 weeks. Real systems, not demos.</p>
       </div>
       <div class="rm-step fade-in stagger-4">
         <div class="rm-week">Week 5+</div>
         <div class="rm-dot"></div>
         <h4>Scale &amp; Iterate</h4>
+        <span class="rm-tag">Monthly · 6-mo minimum</span>
         <p>Monthly retainer – your system grows as your business grows.</p>
       </div>
     </div>
@@ -529,7 +575,7 @@
     <!-- Stats row -->
     <div class="stats-inner scale-in" style="margin-top:56px">
       <div class="stat">
-        <div class="stat-num" data-count="40" data-suffix="+">0</div>
+        <div class="stat-num" data-count="40" data-suffix="+">40+</div>
         <div class="stat-label">Systems delivered</div>
       </div>
       <div class="stat">
@@ -557,14 +603,18 @@
     </div>
     <style>
       #team .team-cap .stack{display:flex;align-items:center;margin-bottom:30px}
-      #team .team-cap .av{position:relative;width:100px;height:100px;border-radius:50%;border:3px solid var(--black);margin-left:-20px;padding:0;background:linear-gradient(135deg,#FFDC00 0%,#781496 100%);box-shadow:0 0 0 1px rgba(255,255,255,.1);transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .4s ease;cursor:pointer}
+      #team .team-cap .av{position:relative;width:100px;height:100px;border-radius:50%;border:3px solid var(--black);margin-left:-20px;padding:0;background:linear-gradient(135deg,#FFDC00 0%,#781496 100%);box-shadow:0 0 0 1px rgba(255,255,255,.1),inset 0 2px 3px rgba(255,255,255,.22),inset 0 -8px 12px rgba(0,0,0,.16);transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .4s ease;cursor:pointer;overflow:hidden}
+      #team .team-cap .av::after{content:'';position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 24% 14%,rgba(255,255,255,.32),rgba(255,255,255,0) 28%);mix-blend-mode:screen;pointer-events:none;z-index:2}
       #team .team-cap .av:first-child{margin-left:0}
       #team .team-cap .av img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:top;display:block}
-      #team .team-cap .av:hover,#team .team-cap .av.active{transform:scale(1.1);z-index:40;box-shadow:0 0 0 3px rgba(255,220,0,.78),0 12px 30px rgba(255,0,245,.32)}
-      #team .team-cap .more-circle{width:100px;height:100px;border-radius:50%;margin-left:-20px;border:3px solid var(--black);background:linear-gradient(135deg,#FFDC00 0%,#781496 100%);display:flex;align-items:center;justify-content:center;color:#161616;font-weight:900;font-size:.92rem;text-align:center;line-height:1.1}
+      #team .team-cap .av:hover,#team .team-cap .av.active{transform:scale(1.1);z-index:40;box-shadow:0 0 0 3px rgba(255,220,0,.78),0 12px 30px rgba(255,0,245,.32),inset 0 2px 3px rgba(255,255,255,.22),inset 0 -8px 12px rgba(0,0,0,.14)}
+      #team .team-cap .more-circle{position:relative;overflow:hidden;width:100px;height:100px;border-radius:50%;margin-left:-20px;border:3px solid var(--black);background:linear-gradient(150deg,rgba(255,220,0,.4),rgba(120,20,150,.4)),var(--glass-bg);-webkit-backdrop-filter:blur(14px) saturate(170%);backdrop-filter:blur(14px) saturate(170%);box-shadow:0 0 0 1px rgba(255,255,255,.1),inset 0 3px 4px rgba(255,255,255,.35),inset 0 -12px 18px rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:900;font-size:.92rem;text-align:center;line-height:1.1;text-shadow:0 1px 3px rgba(0,0,0,.4)}
+      #team .team-cap .more-circle::after{content:'';position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.5),rgba(255,255,255,0) 48%);mix-blend-mode:screen;pointer-events:none;z-index:0}
+      #team .team-cap .more-circle span{position:relative;z-index:1}
       /* persistent detail card */
-      #team .team-cap .tx-detail{display:flex;gap:38px;align-items:stretch;position:relative;overflow:hidden;background:linear-gradient(150deg,rgba(255,220,0,.07),rgba(255,0,245,.07)) ,#1b1b1e;border:1px solid rgba(255,255,255,.1);border-radius:26px;padding:34px;margin-bottom:22px;max-width:880px;height:404px}
-      #team .team-cap .tx-detail::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--yellow),var(--pink))}
+      #team .team-cap .tx-detail{display:flex;gap:38px;align-items:stretch;position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(150deg,rgba(255,220,0,.12),rgba(255,0,245,.1)),var(--glass-bg);border:1px solid rgba(255,255,255,.14);border-radius:26px;padding:34px;margin-bottom:22px;max-width:880px;height:404px;box-shadow:var(--glass-shadow)}
+      #team .team-cap .tx-detail::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--yellow),var(--pink));z-index:3}
+      #team .team-cap .tx-detail::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(150deg,rgba(255,255,255,.5),rgba(255,255,255,.05) 35%,rgba(255,255,255,.03) 70%,rgba(255,255,255,.28));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;pointer-events:none;z-index:2}
       #team .team-cap .tx-photo{flex:0 0 268px;width:268px;align-self:stretch;border-radius:18px;overflow:hidden;background:linear-gradient(135deg,#FFDC00 0%,#781496 100%)}
       #team .team-cap .tx-photo img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
       #team .team-cap .tx-text{flex:1;display:flex;flex-direction:column;justify-content:flex-start}
@@ -598,7 +648,7 @@
       #team .team-cap .tx-note b{color:var(--white)}
       #team .team-cap .cap-title{font-size:.82rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(239,239,239,.5);margin:8px 0 16px}
       #team .team-cap .chips{display:flex;flex-wrap:wrap;gap:11px}
-      #team .team-cap .chip{padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);font-size:.92rem;font-weight:600;color:var(--white);transition:all .25s ease}
+      #team .team-cap .chip{padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:var(--glass-bg);font-size:.92rem;font-weight:600;color:var(--white);transition:all .25s ease}
       #team .team-cap .chip:hover{border-color:transparent;background:linear-gradient(135deg,#FFDC00 0%,#781496 100%);color:#161616;transform:translateY(-2px)}
       #team .team-cap .chip.hot{border-color:transparent;background:linear-gradient(135deg,#FFDC00 0%,#781496 100%);color:#161616}
       @media(max-width:640px){
@@ -619,7 +669,7 @@
         <button type="button" class="tx-av av" data-img="assets/huram.png" data-name="Huram Karosanidze" data-role="Ops Automation Specialist" data-bio="Built 20+ operational systems across different industries." data-loc="Poland" data-fact="Loves robotics"><img src="assets/huram.png" alt="Huram Karosanidze"></button>
         <button type="button" class="tx-av av" data-img="assets/oleksandr-gulak.png" data-name="Oleksandr Gulak" data-role="Full Stack Developer" data-bio="6 years in development – building systems that actually work." data-loc="Ukraine" data-fact="Owner of the cutest chihuahua"><img src="assets/oleksandr-gulak.png" alt="Oleksandr Gulak"></button>
         <button type="button" class="tx-av av" data-img="assets/illia.png" data-name="Illia Stepanets" data-role="MVP Expert" data-bio="Built 25+ MVPs across different fields. Ships a fully functional MVP in days, not months." data-loc="Ukraine" data-fact="Ex-fitness coach"><img src="assets/illia.png" alt="Illia Stepanets"></button>
-        <div class="more-circle">+ team</div>
+        <div class="more-circle"><span>+ team</span></div>
       </div>
       <div class="tx-note"><b>5 senior operators in-house</b> + a network of specialists on call</div>
       <div class="tx-detail anim">
@@ -740,15 +790,6 @@
           <span class="logo-slot">Cursor</span>
         </div>
       </div>
-      <div class="challenge-card fade-in stagger-5">
-        <h4 style="margin-bottom:16px;color:var(--yellow)">Outbound &amp; Sales</h4>
-        <div class="logo-slot-grid">
-          <span class="logo-slot">Clay</span>
-          <span class="logo-slot">Apollo</span>
-          <span class="logo-slot">Instantly</span>
-          <span class="logo-slot">Lemlist</span>
-        </div>
-      </div>
       <div class="challenge-card fade-in stagger-6">
         <h4 style="margin-bottom:16px;color:var(--yellow)">Build &amp; Dev</h4>
         <div class="logo-slot-grid">
@@ -769,6 +810,27 @@
           <span class="logo-slot">Bill.com</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST ROW (Zero lock-in) -->
+<section class="section-pad" id="trust" style="padding-bottom:0">
+  <style>
+    #trust .trust-label{display:block;text-align:center;font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--yellow);margin-bottom:22px}
+    #trust .trust-items{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:960px;margin:0 auto}
+    #trust .trust-item{display:flex;align-items:flex-start;gap:11px;padding:18px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:var(--glass-bg);font-size:.95rem;font-weight:600;line-height:1.4}
+    #trust .trust-item .ti-ic{flex:0 0 26px;width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--yellow),var(--pink));color:#161616;font-weight:900;font-size:.8rem;margin-top:1px}
+    @media(max-width:820px){#trust .trust-items{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:460px){#trust .trust-items{grid-template-columns:1fr}}
+  </style>
+  <div class="container">
+    <span class="trust-label fade-in">Zero lock-in</span>
+    <div class="trust-items fade-in">
+      <div class="trust-item"><span class="ti-ic">✓</span> Your data. Your accounts.</div>
+      <div class="trust-item"><span class="ti-ic">✓</span> Documented, not tribal knowledge.</div>
+      <div class="trust-item"><span class="ti-ic">✓</span> No single point of failure.</div>
+      <div class="trust-item"><span class="ti-ic">✓</span> Open platforms – leave anytime.</div>
     </div>
   </div>
 </section>
@@ -806,7 +868,7 @@
   <div class="container">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="assets/logo_white_2_lines.png" alt="Duck Agency">
+        <img src="assets/logo-footer-2lines.svg" alt="Duck Agency">
         <p>Scale your output – not your team.</p>
       </div>
       <div class="footer-links">

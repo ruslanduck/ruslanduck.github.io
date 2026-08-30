@@ -19,6 +19,27 @@ document.addEventListener('DOMContentLoaded', () => {
     animObserver.observe(el);
   });
 
+  // ── Reveal hero logo strip only after the user actually starts scrolling ──
+  // (mobile browsers can fire a "scroll" event on their own — e.g. when the
+  // address bar collapses on load — so we also require a real user gesture
+  // before we trust a scroll event, and use a higher threshold as a second guard)
+  const revealEls = document.querySelectorAll('.reveal-on-scroll');
+  if (revealEls.length) {
+    let userInteracted = false;
+    const markInteracted = () => { userInteracted = true; };
+    ['touchstart', 'wheel', 'pointerdown', 'keydown'].forEach(evt => {
+      window.addEventListener(evt, markInteracted, { passive: true, once: true });
+    });
+
+    const revealOnScroll = () => {
+      if (userInteracted && window.scrollY > 80) {
+        revealEls.forEach(el => el.classList.add('visible'));
+        window.removeEventListener('scroll', revealOnScroll);
+      }
+    };
+    window.addEventListener('scroll', revealOnScroll, { passive: true });
+  }
+
   // ── Nav scroll effect ──
   const nav = document.querySelector('.nav');
   if (nav) {
@@ -560,4 +581,78 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.add('tst');
     }
   } catch (e) {}
+})();
+
+/* ── Liquid glass: блик следует за курсором по карточке ──
+   CSS-переменная --sheen (0..1) задаёт позицию отражения; на hover
+   карточка приподнимается, и блик смещается вместе с движением. */
+(function () {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var SEL = '.case-card, .service-card, .hc-col';
+  var raf = null, pending = [];
+
+  function flush() {
+    raf = null;
+    for (var i = 0; i < pending.length; i++) {
+      pending[i][0].style.setProperty('--sheen', pending[i][1]);
+    }
+    pending.length = 0;
+  }
+
+  function queue(el, val) {
+    pending.push([el, val]);
+    if (!raf) raf = requestAnimationFrame(flush);
+  }
+
+  document.addEventListener('pointermove', function (e) {
+    var card = e.target && e.target.closest ? e.target.closest(SEL) : null;
+    if (!card) return;
+    var r = card.getBoundingClientRect();
+    if (!r.width) return;
+    var x = (e.clientX - r.left) / r.width;
+    queue(card, Math.max(0, Math.min(1, x)).toFixed(3));
+  }, { passive: true });
+
+  document.addEventListener('pointerleave', function (e) {
+    var card = e.target && e.target.closest ? e.target.closest(SEL) : null;
+    if (card) queue(card, '0.5');
+  }, true);
+})();
+
+/* ── Стеклянный курсор: маленький кружок 5px вместо системного ── */
+(function () {
+  if (!window.matchMedia) return;
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+
+  var dot = document.createElement('div');
+  dot.className = 'duck-cursor-dot';
+  dot.style.transform = 'translate(-100px,-100px)';
+  document.body.appendChild(dot);
+  document.documentElement.classList.add('duck-cursor');
+
+  var x = -100, y = -100, raf = null;
+  var LINK = 'a, button, input, textarea, select, label, [role="button"], .av, .chip, .tx-dot';
+
+  function draw() {
+    raf = null;
+    dot.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+  }
+
+  document.addEventListener('pointermove', function (e) {
+    x = e.clientX; y = e.clientY;
+    if (!raf) raf = requestAnimationFrame(draw);
+    var over = e.target && e.target.closest ? e.target.closest(LINK) : null;
+    dot.classList.toggle('on-link', !!over);
+  }, { passive: true });
+
+  document.addEventListener('pointerdown', function () { dot.classList.add('on-link'); }, { passive: true });
+  document.addEventListener('pointerup', function () { dot.classList.remove('on-link'); }, { passive: true });
+
+  document.addEventListener('mouseleave', function () {
+    dot.style.opacity = '0';
+  });
+  document.addEventListener('mouseenter', function () {
+    dot.style.opacity = '1';
+  });
 })();

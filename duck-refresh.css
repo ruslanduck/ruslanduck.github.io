@@ -1,0 +1,525 @@
+/* ═══════════════════════════════════════════════════════════
+   DUCK AGENCY — refresh layer under the new [ клюв ] identity
+   Подключать ПОСЛЕ style.css:
+     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="duck-refresh.css">
+   Ничего не удаляет — только переопределяет токены и добавляет
+   компоненты. Откатывается снятием одной строки.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── 1. Токены под палитру знака ───────────────────────────── */
+:root {
+  --black:  #0D0D0D;   /* было #161616 */
+  --grey:   #1C1C1C;   /* было #202020 */
+  --yellow: #FFD600;   /* было #FFDC00 */
+  --pink:   #E500E5;   /* было #FF00F5 */
+  --white:  #F2F2F2;   /* было #EFEFEF */
+
+  --yellow-hi: #FFF07A;
+  --yellow-lo: #E8B800;
+  --pink-hi:   #FF5CFF;
+
+  --pink-soft:   rgba(229, 0, 229, 0.15);
+  --yellow-soft: rgba(255, 214, 0, 0.10);
+  --pink-glow:   rgba(229, 0, 229, 0.30);
+  --yellow-glow: rgba(255, 214, 0, 0.25);
+
+  /* радиусы подтянуты к squircle иконки (было 16 / 10) */
+  --radius:    24px;
+  --radius-sm: 14px;
+  --radius-lg: 32px;
+
+  /* стекло — по спеке "Liquid Glass, in CSS": ~14% белого, blur + saturate(160–200%), два inset-тени */
+  /* фон ровный: диагональный градиент давал грязное пятно в углу.
+     Толщину стекла держит тонкий рим по контуру (::before), а не заливка. */
+  --glass-bg: linear-gradient(160deg,
+              rgba(255,255,255,0.075), rgba(255,255,255,0.045) 55%, rgba(255,255,255,0.06));
+  --glass-blur: blur(24px) saturate(180%);
+  --glass-shadow: inset 0 -14px 30px rgba(0,0,0,0.18),
+                  0 18px 44px rgba(0,0,0,0.4);
+}
+
+/* corner-shape: squircle (Chrome 139+) здесь НЕ используем: свойство меняет
+   форму угла у самого блока, но не наследуется псевдоэлементами, поэтому
+   squircle-фон вылезал за круглую рим-обводку — углы "выпирали". */
+
+/* ── 2. Стеклянная поверхность (ядро стиля) ────────────────── */
+.glass-card,
+.glass-tile {
+  position: relative;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border-radius: var(--radius-lg);
+  border: none;
+  box-shadow: var(--glass-shadow);
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* rim light — тот же градиент белого, что в иконке (85% сверху → 45% снизу) */
+.glass-card::after,
+.glass-tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(150deg,
+    rgba(255,255,255,0.55),
+    rgba(255,255,255,0.06) 35%,
+    rgba(255,255,255,0.04) 70%,
+    rgba(255,255,255,0.32));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* хроматическая кайма — жёлтый сверху-справа, magenta снизу-слева */
+.glass-card::before,
+.glass-tile::before {
+  content: '';
+  position: absolute;
+  inset: -40%;
+  background:
+    radial-gradient(circle at 92% 4%,  var(--yellow-soft), transparent 42%),
+    radial-gradient(circle at 8%  96%, var(--pink-soft),   transparent 46%);
+  pointer-events: none;
+  z-index: 0;
+}
+.glass-card > *, .glass-tile > * { position: relative; z-index: 1; }
+
+/* существующие карточки поднимаем до того же стекла — по всем страницам.
+   ВАЖНО: без backdrop-filter. У этих карточек от анимации появления остаётся
+   transform (.fade-in.visible), а Chrome в такой связке рисует подложку
+   необрезанной — вокруг карточки появляется светлый прямоугольник-призрак.
+   Позади них всё равно ровный фон, размывать нечего: стекло держат
+   полупрозрачная заливка + рим по контуру + внутренние тени.
+   Настоящий backdrop-filter остаётся там, где под элементом реально
+   проезжает контент: навбар и курсор. */
+.case-card, .service-card, .stat-card, .team-card, .stack-card,
+.challenge-card, .blog-card, .tool-card, .pain-card, .approach-card,
+.related-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  background: var(--glass-bg);
+  box-shadow: var(--glass-shadow);
+}
+
+/* specular rim здесь — через inset-тень в var(--glass-shadow) выше:
+   ::before/::after на .case-card/.service-card уже заняты hover-уголками (см. секцию 5),
+   поэтому блик даём через box-shadow, а не псевдоэлемент, чтобы не ломать уголки */
+
+/* stats-strip, comparison-table, industry-chips — та же стекломасса */
+.stats-inner, .bg-grey .stats-inner {
+  background: var(--glass-bg);
+  border-color: rgba(255,255,255,0.14);
+  box-shadow: var(--glass-shadow);
+}
+
+.comparison-table {
+  background: var(--glass-bg);
+  border-radius: var(--radius-lg);
+  border-collapse: separate;
+  border-spacing: 0;
+  box-shadow: var(--glass-shadow);
+  overflow: hidden;
+}
+
+.industry-chip {
+  background: var(--glass-bg);
+  border-color: rgba(255,255,255,0.16);
+}
+
+/* панели Problem-секции — liquid glass как в iOS 26 */
+.pn-block {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.16), 0 20px 50px rgba(0,0,0,0.4);
+}
+.pn-block.neg {
+  background: linear-gradient(160deg, rgba(255,90,90,0.12), rgba(255,255,255,0.015) 60%), var(--glass-bg);
+  border-color: rgba(255,90,90,0.3);
+}
+.pn-block.pos {
+  background: linear-gradient(160deg, rgba(255,214,0,0.14), rgba(229,0,229,0.05) 70%), var(--glass-bg);
+  border-color: rgba(255,214,0,0.34);
+}
+.pn-block::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(150deg,
+    rgba(255,255,255,0.55),
+    rgba(255,255,255,0.05) 35%,
+    rgba(255,255,255,0.03) 70%,
+    rgba(255,255,255,0.3));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+}
+.pn-block > * { position: relative; z-index: 1; }
+
+/* мелкое стекло: бейдж в hero, мобильное меню, поля формы */
+.hero-badge {
+  background: var(--glass-bg);
+  border-color: rgba(255,255,255,0.16);
+}
+
+.mobile-menu {
+  background: rgba(13,13,13,0.55);
+  -webkit-backdrop-filter: blur(34px) saturate(150%);
+  backdrop-filter: blur(34px) saturate(150%);
+}
+
+/* client logo strip: takes up zero space by default (not just invisible),
+   so the hero content above gets the extra room while scrolled to top;
+   expands + fades in once the user starts scrolling */
+.reveal-on-scroll {
+  /* no overflow:hidden here on purpose: the logo strip inside breaks out to
+     full viewport width (width:100vw + negative margin), and clipping this
+     box would cut that bleed back down to the container's width. opacity:0
+     already fully hides the content while collapsed, so overflow isn't
+     needed for that — max-height alone is enough to zero out the layout space. */
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease, max-height 0.6s ease;
+}
+.reveal-on-scroll.visible {
+  max-height: 400px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-form input,
+.contact-form textarea,
+.calc-input-wrap input[type="number"] {
+  background: rgba(255,255,255,0.045);
+  border-color: rgba(255,255,255,0.16);
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background: rgba(255,255,255,0.07);
+}
+
+/* ── 3. Навигация — liquid glass в 3 слоя ────────────────────
+   1) база: blur+saturate+brightness на полупрозрачном фоне
+   2) преломление краёв: SVG feTurbulence→feGaussianBlur→feDisplacementMap
+      через backdrop-filter:url(#duck-glass-refraction) — только Chromium,
+      деградирует до чистого стекла слоя 1 в Safari/Firefox (@supports)
+   3) блик и обводка: несколько inset-теней (толщина стекла) + глянцевый
+      диагональный рефлекс поверх (::after, mix-blend-mode:screen)          */
+.nav {
+  position: fixed;
+  background: rgba(13,13,13,0.6);
+  -webkit-backdrop-filter: blur(26px) saturate(180%) brightness(1.1);
+  backdrop-filter: blur(26px) saturate(180%) brightness(1.1);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.35),
+    inset 1px 0 0 rgba(255,255,255,0.07),
+    inset -1px 0 0 rgba(255,255,255,0.07),
+    inset 0 -1px 0 rgba(255,255,255,0.03),
+    0 8px 30px rgba(0,0,0,0.25);
+}
+/* Chrome/Edge: настоящее преломление того, что скроллится под навбаром
+   (см. #duck-glass-refraction в начале <body>).
+   Блюр здесь намеренно почти убран — именно он "замыливал" искажение;
+   стекло читается за счёт изгиба света у кромки, а не за счёт мути. */
+@supports (backdrop-filter: url(#duck-glass-refraction)) or (-webkit-backdrop-filter: url(#duck-glass-refraction)) {
+  .nav {
+    background: rgba(255,255,255,.08);
+    border: none;
+    /* белый ободок 0 0 0 2px из примера здесь убран: на круглой кнопке это рим,
+       а на полосе во всю ширину он читается как белая линия снизу */
+    box-shadow: 0 16px 32px rgba(0,0,0,.12);
+    backdrop-filter: url(#duck-glass-refraction);
+    -webkit-backdrop-filter: url(#duck-glass-refraction);
+  }
+  .nav.scrolled {
+    background: rgba(255,255,255,.08);
+  }
+  .nav::after { content: none; }
+}
+.nav::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg,
+    rgba(255,255,255,0) 30%,
+    rgba(255,255,255,0.14) 46%,
+    rgba(255,255,255,0.04) 56%,
+    rgba(255,255,255,0) 72%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 1;
+}
+.nav-inner { position: relative; z-index: 2; }
+.nav.scrolled {
+  background: rgba(13,13,13,0.88);
+  border-bottom-color: rgba(255,214,0,0.10);
+}
+.nav-logo img { height: 48px; max-width: 280px; }
+/* знак не крутим — по гайду знак не поворачивается */
+.nav-logo:hover img { transform: scale(1.05); }
+
+/* ── 4. Кнопки: стекло + жёлтая заливка ────────────────────── */
+.btn { border-radius: 14px; }
+
+.btn-primary {
+  background: linear-gradient(160deg, var(--yellow-hi), var(--yellow) 45%, var(--yellow-lo));
+  color: var(--black);
+  border: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.55), 0 10px 26px rgba(255,214,0,0.18);
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6),
+              0 14px 38px var(--yellow-glow), 0 0 70px rgba(255,214,0,0.16);
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.16);
+  color: var(--white);
+}
+.btn-secondary:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+  box-shadow: 0 10px 30px rgba(229,0,229,0.18);
+}
+
+/* "Book a Call" в навигации жил своим стилем (острые углы, заливка-свайп) —
+   приводим к тому же стеклу и той же логике hover, что у остальных кнопок */
+.nav-cta {
+  border-radius: 14px;
+  border: 1px solid rgba(255,214,0,0.45);
+  background: rgba(255,255,255,0.04);
+  color: var(--yellow);
+  overflow: visible;
+}
+.nav-cta::before { content: none; }
+.nav-cta:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 10px 30px rgba(229,0,229,0.18);
+}
+
+/* ── 5. Мотив скобок — фирменный «клей» между знаком и сайтом ─ */
+
+/* eyebrow: квадратные скобки знака (обводка, не глиф) + розовый текст */
+.section-eyebrow {
+  color: var(--pink);
+  padding-left: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-eyebrow::before,
+.section-eyebrow::after {
+  content: '';
+  display: inline-block;
+  position: static;
+  width: 7px;
+  height: 1.1em;
+  background: none;
+  transform: none;
+  border: 2px solid var(--yellow);
+}
+.section-eyebrow::before { border-right: none; }
+.section-eyebrow::after  { border-left: none; }
+
+/* тонкий рим по контуру — светлее сверху, слабее снизу: это и есть "толщина"
+   стекла. Раньше её изображала широкая заливка, из-за чего угол выглядел пятном. */
+.case-card, .service-card, .hc-col {
+  position: relative;
+  overflow: hidden;
+  /* контур рисует только рим ниже: свой border из style.css даёт вторую
+     линию в 1px рядом, и вместе они читаются как "карточка за карточкой" */
+  border: none;
+  --sheen: 0.5;
+}
+.case-card::before, .service-card::before, .hc-col::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(165deg,
+    rgba(255,255,255,0.34),
+    rgba(255,255,255,0.05) 30%,
+    rgba(255,255,255,0.03) 70%,
+    rgba(255,255,255,0.16));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+}
+.case-card::after, .service-card::after, .hc-col::after {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -70%;
+  width: 42%;
+  height: 220%;
+  background: linear-gradient(75deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.09) 46%,
+    rgba(255,255,255,0.02) 58%,
+    rgba(255,255,255,0) 100%);
+  transform: translateX(calc(var(--sheen) * 430%)) rotate(8deg);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+  transition: opacity .4s ease, transform .5s cubic-bezier(.22,1,.36,1);
+}
+/* transform обязателен и здесь: в style.css у .service-card:hover::after /
+   .case-card:hover::before висит scaleX(1) от старой полоски-акцента, и при
+   наведении он перебивал позицию блика (тот улетал за край карточки) */
+.case-card:hover::after, .service-card:hover::after, .hc-col:hover::after {
+  opacity: 1;
+  transform: translateX(calc(var(--sheen) * 430%)) rotate(8deg);
+}
+.case-card:hover::before, .service-card:hover::before, .hc-col:hover::before {
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .case-card::after, .service-card::after, .hc-col::after { display: none; }
+}
+
+/* колонки сравнения "Cheaper than 1 hire" — то же стекло, что у карточек */
+.hc-col {
+  isolation: isolate;
+  box-shadow: var(--glass-shadow);
+}
+.hc-col > * { position: relative; z-index: 1; }
+
+/* буллеты списков — magenta шеврон клюва вместо галочек */
+.bullet-beak { list-style: none; padding-left: 0; }
+.bullet-beak li {
+  position: relative;
+  padding-left: 30px;
+}
+.bullet-beak li::before {
+  content: '';
+  position: absolute;
+  left: 6px; top: 0.6em;
+  width: 11px; height: 11px;
+  border-left: 2.5px solid var(--pink);
+  border-bottom: 2.5px solid var(--pink);
+  transform: rotate(45deg) translateY(-2px);
+  border-radius: 1px;
+}
+
+/* акцент-звёздочка бренда */
+.asterisk { color: var(--pink); font-weight: 700; }
+
+/* ── 6. Свечение фона — та же логика света, что в иконке ───── */
+/* magenta слева-снизу, жёлтый справа-сверху: как glow-слои знака */
+.hero-blob-1 { background: var(--pink);   opacity: 0.14; top: -12%; right: -6%; }
+.hero-blob-2 { background: var(--yellow); opacity: 0.05; bottom: -4%; left: -12%; }
+.hero-blob-3 { background: var(--pink);   opacity: 0.07; }
+
+/* ── 7. Слоган ─────────────────────────────────────────────── */
+.slogan-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 22px 10px;
+  border-radius: 100px;
+  background: var(--yellow);
+  color: var(--black);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+.slogan-pill img { height: 20px; width: auto; }
+
+.slogan-inline {
+  color: var(--pink);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* ── 7b. Стеклянный курсор ─────────────────────────────────── */
+@media (pointer: fine) {
+  html.duck-cursor, html.duck-cursor * { cursor: none !important; }
+
+  /* геометрия и настройки — как в референсе: круг, полупрозрачный белый фон,
+     ободок, и преломление через SVG-фильтр (здесь scale=1 отрабатывает верно,
+     потому что элемент круглый и мелкий, как кнопка в примере) */
+  .duck-cursor-dot {
+    position: fixed;
+    top: 0; left: 0;
+    width: 30px; height: 30px;
+    margin: -15px 0 0 -15px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.5);
+    box-shadow: 0 0 0 1px rgba(255,255,255,.18), 0 8px 18px rgba(0,0,0,.35);
+    backdrop-filter: url(#duck-glass-cursor);
+    -webkit-backdrop-filter: url(#duck-glass-cursor);
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+    z-index: 99999;
+    transition: width .2s ease, height .2s ease, margin .2s ease,
+                background .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  /* клюв "<" из знака внутри курсора */
+  .duck-cursor-dot::after {
+    content: '';
+    width: 44%;
+    height: 44%;
+    background: var(--pink);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M 320 150 L 190 256 L 320 362' fill='none' stroke='%23000' stroke-width='58' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M 320 150 L 190 256 L 320 362' fill='none' stroke='%23000' stroke-width='58' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+    filter: drop-shadow(0 0 3px rgba(229,0,229,.65));
+  }
+  /* над кликабельным — крупнее и в жёлтый */
+  .duck-cursor-dot.on-link {
+    width: 46px; height: 46px;
+    margin: -23px 0 0 -23px;
+    background: rgba(255,214,0,.10);
+    border-color: rgba(255,214,0,.7);
+    box-shadow: 0 0 0 1px rgba(255,214,0,.25), 0 0 18px rgba(255,214,0,.35), 0 8px 20px rgba(0,0,0,.4);
+  }
+  .duck-cursor-dot.on-link::after {
+    background: var(--yellow);
+    filter: drop-shadow(0 0 4px rgba(255,214,0,.7));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .duck-cursor-dot { transition: none; }
+}
+
+/* ── 8. Мелочи ─────────────────────────────────────────────── */
+::selection { background: var(--yellow); color: var(--black); }
+:focus-visible { outline: 2px solid var(--yellow); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-blob { animation: none; }
+}
+
+/* На слабых устройствах backdrop-filter дорогой — деградируем в плотный фон */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-card, .glass-tile, .case-card, .service-card,
+  .stat-card, .team-card, .stack-card { background: var(--grey); }
+  .nav { background: rgba(13,13,13,0.96); }
+}

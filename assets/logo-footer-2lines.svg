@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 210" width="560" height="210">
+  <g transform="translate(0 2.5) scale(0.41165)"><g transform="translate(256 256) scale(0.88) translate(-256 -256)"><g fill="none" stroke="#FFD600" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"><path d="M 152 112 L 92 112 L 92 400 L 152 400"/><path d="M 360 112 L 420 112 L 420 400 L 360 400"/></g><path d="M 290 182 L 202 256 L 290 330" fill="none" stroke="#E500E5" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/></g></g>
+  <text x="217" y="96" font-family="'Involve','Barlow Condensed','Arial Black',sans-serif" font-size="56" font-weight="700"
+        fill="#FFD600" letter-spacing="1">DUCK</text>
+  <text x="217" y="160" font-family="'Involve','Barlow Condensed','Arial Black',sans-serif" font-size="56" font-weight="700"
+        fill="#F2F2F2" fill-opacity="0.9" letter-spacing="1">AGENCY</text>
+</svg>
