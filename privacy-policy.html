@@ -3,159 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog – Operations, Automation & Business Systems | Duck Agency</title>
-  <meta name="description" content="Practical insights on business process automation, custom ERP/CRM systems, and operational efficiency for growing businesses. Written by operators, for operators.">
-  <meta name="keywords" content="business automation blog, ERP insights, CRM tips, process improvement, operations management, no-code automation">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <link rel="canonical" href="https://duck-agency.com/blog">
-  <link rel="icon" type="image/svg+xml" href="assets/icon-flat-small.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon-180.png">
-  <link rel="manifest" href="site.webmanifest">
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://duck-agency.com/blog">
-  <meta property="og:site_name" content="Duck Agency">
-  <meta property="og:title" content="Blog – Operations, Automation & Business Systems | Duck Agency">
-  <meta property="og:description" content="Practical insights on business process automation, custom ERP/CRM systems, and operational efficiency. Written by operators, for operators.">
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Blog – Operations & Automation | Duck Agency">
-  <meta name="twitter:description" content="Practical insights on business process automation, custom ERP/CRM systems, and operational efficiency.">
-  <meta property="og:image" content="https://duck-agency.com/assets/og-image-1200x630.png">
-  <meta name="twitter:image" content="https://duck-agency.com/assets/og-image-1200x630.png">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="duck-refresh.css">
-  <!-- seo-extra -->
+  <title>Privacy Policy – Duck Agency</title>
+  <meta name="description" content="How Duck agency s.r.o. handles personal data submitted through duck-agency.com: what we collect, why, how long we keep it, and your rights under the GDPR.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://duck-agency.com/privacy-policy">
+  <link rel="icon" type="image/svg+xml" href="/assets/icon-flat-small.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon-180.png">
+  <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#0D0D0D">
-  <meta name="author" content="Duck Agency">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:image:alt" content="Duck Agency — Quack &amp; Done">
-  <meta name="twitter:image:alt" content="Duck Agency — Quack &amp; Done">
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=involve@400,700&display=swap">
-
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/duck-refresh.css">
   <style>
-    .blog-hero { padding: 140px 0 80px; text-align: center; }
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 28px;
-      margin-bottom: 80px;
+    .legal-wrap { padding: 150px 0 90px; position: relative; overflow: hidden; }
+    .legal { position: relative; z-index: 2; max-width: 780px; }
+    .legal h1 { font-size: clamp(2rem, 4.5vw, 3rem); margin-bottom: 12px; }
+    .legal .updated { font-size: 0.9rem; color: rgba(239,239,239,0.55); margin-bottom: 44px; }
+    .legal h2 {
+      font-size: clamp(1.15rem, 2vw, 1.4rem);
+      margin: 40px 0 14px;
+      padding-top: 26px;
+      border-top: 1px solid rgba(255,255,255,0.08);
     }
-    .blog-card {
-      background: var(--grey);
+    .legal h2:first-of-type { border-top: none; padding-top: 0; }
+    .legal p, .legal li { color: rgba(239,239,239,0.86); line-height: 1.75; margin-bottom: 14px; }
+    .legal ul { padding-left: 0; list-style: none; margin-bottom: 18px; }
+    .legal ul li { position: relative; padding-left: 26px; }
+    .legal ul li::before {
+      content: ''; position: absolute; left: 6px; top: 0.62em;
+      width: 9px; height: 9px;
+      border-left: 2.5px solid var(--pink);
+      border-bottom: 2.5px solid var(--pink);
+      transform: rotate(45deg);
+    }
+    .legal a { color: var(--yellow); text-decoration: underline; text-underline-offset: 3px; }
+    .legal-card {
+      background: var(--glass-bg);
       border-radius: var(--radius);
-      padding: 32px;
-      border: 1px solid rgba(239,239,239,0.28);
-      transition: transform 0.3s var(--transition), border-color 0.3s var(--transition);
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+      box-shadow: var(--glass-shadow);
+      padding: 28px 30px;
+      margin-bottom: 36px;
     }
-    .blog-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255,220,0,0.2);
-    }
-    .blog-card-meta {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .blog-tag {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--black);
-      background: var(--yellow);
-      padding: 3px 10px;
-      border-radius: 4px;
-    }
-    .blog-tag.pink { background: var(--pink); }
-    .blog-date {
-      font-size: 0.8rem;
-      color: rgba(239,239,239,0.74);
-    }
-    .blog-card h3 {
-      font-size: clamp(1.15rem, 2vw, 1.35rem);
-      color: var(--white);
-      line-height: 1.2;
-    }
-    .blog-card p {
-      font-size: 0.9rem;
-      color: rgba(239,239,239,0.96);
-      line-height: 1.65;
-      flex: 1;
-    }
-    .blog-card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 16px;
-      border-top: 1px solid rgba(239,239,239,0.29);
-    }
-    .blog-read-time {
-      font-size: 0.78rem;
-      color: rgba(239,239,239,0.68);
-    }
-    .blog-read-link {
-      font-size: 0.85rem;
-      color: var(--yellow);
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      transition: opacity 0.2s;
-    }
-    .blog-read-link:hover { opacity: 0.7; }
-    .blog-featured {
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      background: linear-gradient(135deg, rgba(255,220,0,0.06), rgba(255,0,245,0.06));
-      border-color: rgba(255,220,0,0.15);
-    }
-    .blog-featured .blog-featured-body { display: flex; flex-direction: column; justify-content: center; gap: 20px; }
-    .blog-featured .blog-featured-img {
-      background: rgba(255,220,0,0.05);
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 5rem;
-      min-height: 200px;
-    }
-    .blog-featured h3 { font-size: clamp(1.4rem, 2.5vw, 1.8rem); }
-    .blog-featured p { font-size: 0.95rem; }
-    .blog-cta-banner {
-      background: var(--grey);
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,0,245,0.15);
-      padding: 48px;
-      text-align: center;
-      margin-bottom: 80px;
-    }
-    .blog-cta-banner h3 { margin-bottom: 12px; }
-    .blog-cta-banner p { color: rgba(239,239,239,0.96); margin-bottom: 28px; max-width: 500px; margin-left: auto; margin-right: auto; }
-    @media (max-width: 768px) {
-      .blog-hero { padding: 100px 0 52px; }
-      .blog-featured { grid-template-columns: 1fr; }
-      .blog-featured .blog-featured-img { min-height: 120px; font-size: 3rem; }
-      .blog-grid { grid-template-columns: 1fr; }
-      .blog-cta-banner { padding: 32px 20px; }
-    }
-    @media (max-width: 480px) {
-      .blog-card { padding: 22px 18px; }
+    .legal-card dl { display: grid; grid-template-columns: max-content 1fr; gap: 10px 22px; }
+    .legal-card dt { color: rgba(239,239,239,0.55); font-size: 0.9rem; }
+    .legal-card dd { font-weight: 600; font-size: 0.95rem; }
+    @media (max-width: 600px) {
+      .legal-wrap { padding: 120px 0 70px; }
+      .legal-card { padding: 22px 20px; }
+      .legal-card dl { grid-template-columns: 1fr; gap: 2px 0; }
+      .legal-card dd { margin-bottom: 12px; }
     }
   </style>
-  <!-- seo-jsonld -->
-  <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "Blog", "name": "Duck Agency Blog", "url": "https://duck-agency.com/blog", "description": "Practical insights on business process automation, custom ERP/CRM systems, and operational efficiency for growing businesses. Written by operators, for operators.", "isPartOf": {"@type": "WebSite", "name": "Duck Agency", "url": "https://duck-agency.com/"}, "publisher": {"@type": "Organization", "name": "Duck Agency", "url": "https://duck-agency.com/", "logo": "https://duck-agency.com/assets/og-image-1200x630.png"}}
-  </script>
-  <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://duck-agency.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://duck-agency.com/blog"}]}
-  </script>
 </head>
 <body>
 <svg style="position:absolute;width:0;height:0" aria-hidden="true">
@@ -176,7 +77,7 @@
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="/" class="nav-logo"><img src="assets/logo-nav-white.svg" alt="Duck Agency" width="210" height="34"></a>
+    <a href="/" class="nav-logo"><img src="/assets/logo-nav-white.svg" alt="Duck Agency" width="210" height="34"></a>
     <div class="nav-links">
       <a href="/operations">Operations</a>
       <a href="/revenue">Revenue</a>
@@ -197,124 +98,87 @@
   <a href="https://calendly.com/ruslan-duck-agency/30min" target="_blank" rel="noopener" style="color:var(--yellow)">Book a Call →</a>
 </div>
 
-<!-- HERO -->
-<section class="blog-hero">
+<section class="legal-wrap">
+  <div class="hero-bg"><div class="hero-blob hero-blob-1"></div></div>
   <div class="container">
-    <span class="section-eyebrow fade-in">The Duck Blog</span>
-    <h1 class="fade-in" style="margin-bottom:20px">Operations.<br><span class="yellow">Automation.</span> Systems.</h1>
-    <p class="section-sub fade-in" style="margin:0 auto">Practical insights for founders and operators who are done running their business on spreadsheets and hope.</p>
-  </div>
-</section>
+    <div class="legal">
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: 16 September 2026</p>
 
-<!-- BLOG POSTS -->
-<section class="section-pad" style="padding-top:0">
-  <div class="container">
-    <div class="blog-grid">
+      <div class="legal-card">
+        <dl>
+          <dt>Controller</dt><dd>Duck agency s.r.o.</dd>
+          <dt>IČO</dt><dd>24351181</dd>
+          <dt>DIČ</dt><dd>CZ24351181</dd>
+          <dt>Registered office</dt><dd>Ke strži 972, Nebušice, 164 00 Praha 6, Czech Republic</dd>
+          <dt>Registration</dt><dd>File C 439732, Municipal Court in Prague</dd>
+          <dt>Contact</dt><dd><a href="mailto:ruslan@duck-agency.com">ruslan@duck-agency.com</a></dd>
+        </dl>
+      </div>
 
-      <!-- Featured Post -->
-      <article class="blog-card blog-featured fade-in">
-        <div class="blog-featured-img">📊</div>
-        <div class="blog-featured-body">
-          <div class="blog-card-meta">
-            <span class="blog-tag">Operations</span>
-            <span class="blog-date">February 2026</span>
-          </div>
-          <h3>The Real Cost of Manual Work: Why Most Businesses Underestimate Operational Waste</h3>
-          <p>Your team spends 2 hours a day copy-pasting data between tools. Multiply that by 10 people, 250 working days, and an average salary – and you're looking at over $200K a year in hidden costs. Here's how to calculate yours and what to do about it.</p>
-          <div class="blog-card-footer">
-            <span class="blog-read-time">8 min read</span>
-            <a href="/blog-real-cost-of-manual-work" class="blog-read-link">Read Article →</a>
-          </div>
-        </div>
-      </article>
+      <p>This policy explains what personal data we collect through <strong>duck-agency.com</strong>, why we collect it, and what you can do about it. We are the data controller for that data under the GDPR (Regulation (EU) 2016/679).</p>
 
-      <!-- Post 2 -->
-      <article class="blog-card fade-in stagger-1">
-        <div class="blog-card-meta">
-          <span class="blog-tag">Growth</span>
-          <span class="blog-date">January 2026</span>
-        </div>
-        <h3>5 Signs Your Business Has Outgrown Its Tools</h3>
-        <p>There's a point where the spreadsheets, the Slack threads, and the "just ask Dave" culture stops working. These are the five warning signs that you've crossed that line – and what operators do next.</p>
-        <div class="blog-card-footer">
-          <span class="blog-read-time">5 min read</span>
-          <span class="blog-read-link">Coming Soon →</span>
-        </div>
-      </article>
+      <h2>What we collect</h2>
+      <p>Only what you type into the contact form yourself:</p>
+      <ul>
+        <li>your name;</li>
+        <li>your email address;</li>
+        <li>the message you write.</li>
+      </ul>
+      <p>We do not ask for anything else, and we do not buy or enrich your data from third-party sources.</p>
 
-      <!-- Post 3 -->
-      <article class="blog-card fade-in stagger-2">
-        <div class="blog-card-meta">
-          <span class="blog-tag pink">Systems</span>
-          <span class="blog-date">January 2026</span>
-        </div>
-        <h3>Custom ERP vs. Off-the-Shelf: Which One Actually Fits Your Business?</h3>
-        <p>Salesforce, HubSpot, Monday.com – great tools, used by 10% of their capacity in most companies. We break down when generic software works and when you need something built for how you actually operate.</p>
-        <div class="blog-card-footer">
-          <span class="blog-read-time">6 min read</span>
-          <span class="blog-read-link">Coming Soon →</span>
-        </div>
-      </article>
+      <h2>No cookies, no analytics, no tracking</h2>
+      <p>This website sets no cookies, runs no analytics, and embeds no advertising or social tracking pixels. Nothing follows you around after you leave. That is also why you are not being asked to dismiss a cookie banner.</p>
+      <p>Our host records standard server logs (IP address, time of request, browser user agent) for security and availability, as any web server does.</p>
 
-      <!-- Post 4 -->
-      <article class="blog-card fade-in stagger-3">
-        <div class="blog-card-meta">
-          <span class="blog-tag">Automation</span>
-          <span class="blog-date">December 2025</span>
-        </div>
-        <h3>How to Automate Your First Business Process (Without a Developer)</h3>
-        <p>You don't need a custom system to start improving operations. Here's a step-by-step guide to picking the right first process to automate, the tools to use, and what to watch out for along the way.</p>
-        <div class="blog-card-footer">
-          <span class="blog-read-time">7 min read</span>
-          <span class="blog-read-link">Coming Soon →</span>
-        </div>
-      </article>
+      <h2>Why we use it, and on what legal basis</h2>
+      <ul>
+        <li><strong>To answer your enquiry</strong> — legal basis: your consent, Art. 6(1)(a) GDPR, given when you tick the consent box and submit the form. Where your message concerns a possible engagement, we also rely on Art. 6(1)(b) — steps taken at your request prior to entering into a contract.</li>
+        <li><strong>To keep the site secure and online</strong> — legal basis: our legitimate interest, Art. 6(1)(f).</li>
+      </ul>
+      <p>We do not use your data for automated decision-making or profiling, and we never sell it.</p>
 
-      <!-- Post 5 -->
-      <article class="blog-card fade-in stagger-4">
-        <div class="blog-card-meta">
-          <span class="blog-tag pink">AI</span>
-          <span class="blog-date">December 2025</span>
-        </div>
-        <h3>AI in Business Operations: What Actually Works in 2026</h3>
-        <p>AI hype is everywhere. But which AI integrations genuinely reduce manual work, and which are just demos that look good in a pitch deck? Based on real systems we've built, here's what delivers ROI.</p>
-        <div class="blog-card-footer">
-          <span class="blog-read-time">9 min read</span>
-          <span class="blog-read-link">Coming Soon →</span>
-        </div>
-      </article>
+      <h2>Who else sees it</h2>
+      <p>We keep the circle deliberately small. Your submission passes through:</p>
+      <ul>
+        <li><strong>FormSubmit</strong> (formsubmit.co) — delivers the form contents to our inbox. The service is operated outside the EEA, so this involves a transfer to a third country.</li>
+        <li><strong>Our email provider</strong> — where the message then lives, like any email you send us.</li>
+        <li><strong>GitHub Pages</strong> (GitHub, Inc.) — hosts this website and keeps the server logs described above.</li>
+      </ul>
+      <p>We do not share your data with anyone else unless the law requires it.</p>
 
-      <!-- Post 6 -->
-      <article class="blog-card fade-in stagger-5">
-        <div class="blog-card-meta">
-          <span class="blog-tag">Case Study</span>
-          <span class="blog-date">November 2025</span>
-        </div>
-        <h3>From 3 Days to 10 Minutes: How We Rebuilt a Travel Agency's Proposal System</h3>
-        <p>A corporate travel company was spending 2–3 days building every client proposal. Tour selection, pricing, documents – all done manually. We cut that to under 10 minutes. Here's exactly how.</p>
-        <div class="blog-card-footer">
-          <span class="blog-read-time">6 min read</span>
-          <span class="blog-read-link">Coming Soon →</span>
-        </div>
-      </article>
+      <h2>How long we keep it</h2>
+      <p>Enquiries are kept for <strong>24 months</strong> from your last contact with us, so we can pick up a conversation where it left off. After that they are deleted. If you ask us to delete them sooner, we will.</p>
 
-    </div>
+      <h2>Your rights</h2>
+      <p>Under the GDPR you can ask us to:</p>
+      <ul>
+        <li>give you a copy of the data we hold about you (access);</li>
+        <li>correct anything that is wrong (rectification);</li>
+        <li>delete it (erasure);</li>
+        <li>restrict how we use it, or object to that use;</li>
+        <li>hand it over in a portable format (portability);</li>
+        <li>withdraw your consent at any time — this does not affect processing already carried out.</li>
+      </ul>
+      <p>Write to <a href="mailto:ruslan@duck-agency.com">ruslan@duck-agency.com</a> and we will respond within one month. No special form or wording is needed.</p>
 
-    <!-- CTA Banner -->
-    <div class="blog-cta-banner fade-in">
-      <h3>Want insights like this for your business?</h3>
-      <p>We occasionally send practical operations content – no fluff, no filler. Only when we have something worth saying.</p>
-      <a href="https://calendly.com/ruslan-duck-agency/30min" target="_blank" rel="noopener" class="btn btn-primary">Book a Free Discovery Call</a>
+      <h2>If you are not happy with how we handled it</h2>
+      <p>You can lodge a complaint with the Czech supervisory authority:</p>
+      <p>Úřad pro ochranu osobních údajů<br>
+      Pplk. Sochora 27, 170 00 Praha 7, Czech Republic<br>
+      <a href="https://www.uoou.gov.cz" target="_blank" rel="noopener">uoou.gov.cz</a></p>
+
+      <h2>Changes to this policy</h2>
+      <p>If we change how we handle data, we update this page and the date at the top. Material changes affecting data we already hold will be communicated to you directly.</p>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="assets/logo-footer-2lines.svg" alt="Duck Agency">
+        <img src="/assets/logo-footer-2lines.svg" alt="Duck Agency">
         <p>Scale your output – not your team.</p>
       </div>
       <div class="footer-links">
@@ -351,6 +215,6 @@
   </div>
 </footer>
 
-<script src="main.js"></script>
+<script src="/main.js"></script>
 </body>
 </html>

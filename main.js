@@ -333,7 +333,11 @@ document.addEventListener('DOMContentLoaded', () => {
     var email = els.email.value.trim();
     var note = els.note.value.trim();
 
+    var consent = els.consent;                       // чекбокс согласия (GDPR)
+    var consentRow = f.querySelector('.form-consent');
+
     [els.name, els.email, els.note].forEach(function (el) { el.classList.remove('invalid'); });
+    if (consentRow) consentRow.classList.remove('invalid');
     status.className = 'form-status';
 
     var bad = false;
@@ -341,6 +345,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!email || !emailRe.test(email)) { els.email.classList.add('invalid'); bad = true; }
     if (!note) { els.note.classList.add('invalid'); bad = true; }
     if (bad) { status.textContent = 'Please fill in all fields with a valid email.'; status.classList.add('err'); return; }
+
+    // Без согласия ничего не отправляем: это правовое основание обработки
+    // по ст. 6(1)(a) GDPR, а не формальная галочка. Отдельным сообщением,
+    // чтобы человек понял, чего именно не хватает.
+    if (consent && !consent.checked) {
+      if (consentRow) consentRow.classList.add('invalid');
+      status.textContent = 'Please confirm you agree to us processing your message.';
+      status.classList.add('err');
+      return;
+    }
 
     var btn = f.querySelector('button[type=submit]');
     var orig = btn.textContent;
@@ -361,6 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
         name: name,
         email: email,
         note: note,
+        consent: 'Consent given at ' + new Date().toISOString(),
         _subject: 'New Duck Agency website lead: ' + name,
         _template: 'table',
         page: location.pathname

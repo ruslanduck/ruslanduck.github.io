@@ -518,6 +518,45 @@
   .duck-cursor-dot { transition: none; }
 }
 
+/* ── 8a. Юридический блок в футере (§435 občanského zákoníku) ───────
+   Идентификация предпринимателя обязана присутствовать на сайте:
+   название, IČO, sídlo и запись в реестре. Держим мелким и приглушённым —
+   это обязательная информация, а не маркетинг. */
+.footer-legal {
+  padding: 22px 0 18px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  margin-top: 28px;
+}
+.footer-legal p {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: rgba(239,239,239,0.45);
+  margin: 0;
+}
+.footer-legal strong { color: rgba(239,239,239,0.62); font-weight: 700; }
+
+/* согласие на обработку данных в форме (GDPR, ст. 6(1)(a)) */
+.form-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin: 4px 0 20px;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: rgba(239,239,239,0.72);
+}
+.form-consent input[type="checkbox"] {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--yellow);
+  cursor: pointer;
+}
+.form-consent a { color: var(--yellow); text-decoration: underline; text-underline-offset: 2px; }
+.form-consent.invalid { color: #ff7a7a; }
+.form-consent.invalid input[type="checkbox"] { outline: 2px solid #ff7a7a; outline-offset: 2px; }
+
 /* ── 8. Мелочи ─────────────────────────────────────────────── */
 ::selection { background: var(--yellow); color: var(--black); }
 :focus-visible { outline: 2px solid var(--yellow); outline-offset: 3px; }
