@@ -518,6 +518,16 @@
   .duck-cursor-dot { transition: none; }
 }
 
+/* Глобально у ссылок color:inherit и без подчёркивания, поэтому Privacy Policy
+   в строке копирайта была неотличима от обычного текста — подсвечиваем. */
+.footer-bottom p a {
+  color: rgba(239,239,239,0.8);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.3s;
+}
+.footer-bottom p a:hover { color: var(--yellow); }
+
 /* ── 8a. Юридический блок в футере (§435 občanského zákoníku) ───────
    Идентификация предпринимателя обязана присутствовать на сайте:
    название, IČO, sídlo и запись в реестре. Держим мелким и приглушённым —
