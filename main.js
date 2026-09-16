@@ -56,18 +56,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.querySelector('.hamburger');
   const mobileMenu = document.querySelector('.mobile-menu');
   if (hamburger && mobileMenu) {
+    const setMenu = (open) => {
+      hamburger.classList.toggle('open', open);
+      mobileMenu.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      // всегда явным значением: иначе застрявший overflow:hidden блокирует
+      // скролл страницы, и с телефона уже не выбраться
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+
+    hamburger.setAttribute('aria-expanded', 'false');
     hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+      setMenu(!mobileMenu.classList.contains('open'));
     });
+
     mobileMenu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
-        document.body.style.overflow = '';
-      });
+      a.addEventListener('click', () => setMenu(false));
     });
+
+    // запасной выход с клавиатуры
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) setMenu(false);
+    });
+
+    // если ушли в десктопную ширину с открытым меню — закрыть и вернуть скролл
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 980 && mobileMenu.classList.contains('open')) setMenu(false);
+    }, { passive: true });
   }
 
   // ── Hero entrance ──

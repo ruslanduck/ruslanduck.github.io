@@ -4,7 +4,10 @@
    Fonts: Involve (single family)
    ═══════════════════════════════════════════ */
 
-@import url('https://api.fontshare.com/v2/css?f[]=involve@400,700&display=swap');
+/* Шрифт больше НЕ подключается через @import: браузер обязан сначала скачать
+   и распарсить style.css, только потом запросить CSS шрифта, и лишь потом сам
+   файл шрифта — три последовательных round-trip'а, всё это время рендер стоит.
+   Теперь <link> лежит прямо в <head> каждой страницы и грузится параллельно. */
 
 /* ── Reset & Variables ── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -436,7 +439,14 @@ h4 { font-size: clamp(1.05rem, 1.5vw, 1.25rem); letter-spacing: -0.005em; }
    shrink below your own content's height" — a nested grid-row + flex-stretch
    combo turned out to not center reliably in Safari/iOS, this does. */
 .hero .container { position: relative; z-index: 2; display: flex; flex-direction: column; row-gap: 24px; }
-.hero .container .hero-main { flex: 1 1 0%; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+/* align-items здесь НЕЛЬЗЯ ставить в flex-start: это включает shrink-to-fit
+   для ВСЕХ детей, и текстовые блоки (h1, .hero-sub) могут посчитать себе
+   ширину по max-content — то есть по длине неразорванной строки. На мобильном
+   заголовок переставал переноситься и уезжал за правый край экрана.
+   Дефолтный stretch даёт детям полную ширину и корректный перенос,
+   а «пилюлю» бейджа ужимаем точечно через align-self ниже. */
+.hero .container .hero-main { flex: 1 1 0%; display: flex; flex-direction: column; justify-content: center; }
+.hero .container .hero-main > .hero-badge { align-self: flex-start; }
 .hero .container .reveal-on-scroll { flex: 0 0 auto; }
 
 .hero-badge {
@@ -3469,14 +3479,12 @@ body {
 
 /* ── Per-logo size tweaks (optical balance) ── */
 .logo-img[src*="logo-odelet"]     { height: 58px; margin-right: -6px; transform: translateY(-10px); }
-.logo-img[src*="logo-openhouse"]  { height: 30px; }
 .logo-img[src*="logo-bazaraki"]   { height: 30px; transform: translateY(5px); }
 .logo-img[src*="logo-gpd"]        { height: 30px; }
 .logo-img[src*="logo-workintense"]{ transform: translateY(3px); }
 .logo-img[src*="logo-larixon"]    { transform: translateY(3px); }
 @media (max-width: 768px) {
   .logo-img[src*="logo-odelet"]    { height: 46px; }
-  .logo-img[src*="logo-openhouse"] { height: 24px; }
   .logo-img[src*="logo-bazaraki"]  { height: 24px; }
   .logo-img[src*="logo-gpd"]       { height: 24px; }
 }

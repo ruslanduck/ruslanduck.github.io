@@ -177,9 +177,18 @@
 }
 
 .mobile-menu {
-  background: rgba(13,13,13,0.55);
+  background: rgba(13,13,13,0.92);
   -webkit-backdrop-filter: blur(34px) saturate(150%);
   backdrop-filter: blur(34px) saturate(150%);
+
+  /* КРИТИЧНО: меню должно лежать НИЖЕ навбара.
+     .nav — position:fixed + z-index:100, то есть он создаёт stacking context,
+     и z-index:200 у .hamburger внутри него считается ВНУТРИ этого контекста.
+     Пока у меню было z-index:150, оверлей перекрывал сам гамбургер: крестик
+     видно, но тап уходил в .mobile-menu, и меню нельзя было закрыть.
+     90 < 100 — теперь навбар с крестиком всегда поверх оверлея. */
+  z-index: 90;
+  padding-top: 72px;   /* высота навбара, чтобы пункты не уезжали под него */
 }
 
 /* client logo strip: takes up zero space by default (not just invisible),
@@ -483,13 +492,13 @@
                 background .2s ease, border-color .2s ease, box-shadow .2s ease;
   }
   /* клюв "<" из знака внутри курсора */
+  /* точка в центре вместо клюва: маска со шевроном больше не нужна */
   .duck-cursor-dot::after {
     content: '';
-    width: 44%;
-    height: 44%;
+    width: 22%;
+    height: 22%;
+    border-radius: 50%;
     background: var(--pink);
-    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M 320 150 L 190 256 L 320 362' fill='none' stroke='%23000' stroke-width='58' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M 320 150 L 190 256 L 320 362' fill='none' stroke='%23000' stroke-width='58' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
     filter: drop-shadow(0 0 3px rgba(229,0,229,.65));
   }
   /* над кликабельным — крупнее и в жёлтый */
